@@ -22,6 +22,7 @@ import { SortWayComponent } from './category/sort-way/sort-way.component';
 import { CategoryProductComponent } from './category/category-product/category-product.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BlockTemplateProductComponent } from './block-template-product/block-template-product.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { BlockTemplateProductComponent } from './block-template-product/block-te
     CategoryProductComponent,
     BreadcrumbComponent,
     BlockTemplateProductComponent,
+    PaginationComponent,
 
   ],
   imports: [

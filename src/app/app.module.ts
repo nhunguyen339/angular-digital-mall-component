@@ -10,15 +10,18 @@ import { SlideComponent } from './homepage/slide/slide.component';
 import { ListItemSupportComponent } from './homepage/list-item-support/list-item-support.component';
 import { NewFeatureBestProductComponent } from './homepage/new-feature-best-product/new-feature-best-product.component';
 import { ListItemCompanyComponent } from './homepage/list-item-company/list-item-company.component';
-import { BreadcrumbComponent } from './product-detail/breadcrumb/breadcrumb.component';
 import { MoreDetailComponent } from './product-detail/more-detail/more-detail.component';
 import { DescriptionComponent } from './product-detail/description/description.component';
 import { ReviewComponent } from './product-detail/review/review.component';
-import { ProductRelativeComponent } from './product-detail/product-relative/product-relative.component';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-import { BlockTemplateProductComponent } from './homepage/block-template-product/block-template-product.component';
 import { SimilarProductComponent } from './homepage/similar-product/similar-product.component';
+import { CategoryComponent } from './category/category.component';
+import { FilterProductComponent } from './category/filter-product/filter-product.component';
+import { SortWayComponent } from './category/sort-way/sort-way.component';
+import { CategoryProductComponent } from './category/category-product/category-product.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { BlockTemplateProductComponent } from './block-template-product/block-template-product.component';
 
 
 @NgModule({
@@ -30,15 +33,18 @@ import { SimilarProductComponent } from './homepage/similar-product/similar-prod
     ListItemSupportComponent,
     NewFeatureBestProductComponent,
     ListItemCompanyComponent,
-    BreadcrumbComponent,
     MoreDetailComponent,
     DescriptionComponent,
     ReviewComponent,
-    ProductRelativeComponent,
     NavComponent,
     FooterComponent,
-    BlockTemplateProductComponent,
     SimilarProductComponent,
+    CategoryComponent,
+    FilterProductComponent,
+    SortWayComponent,
+    CategoryProductComponent,
+    BreadcrumbComponent,
+    BlockTemplateProductComponent,
 
   ],
   imports: [

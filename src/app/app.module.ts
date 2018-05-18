@@ -23,6 +23,19 @@ import { CategoryProductComponent } from './category/category-product/category-p
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { BlockTemplateProductComponent } from './block-template-product/block-template-product.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { ListProductCartComponent } from './cart/list-product-cart/list-product-cart.component';
+import { TotalCartComponent } from './total-cart/total-cart.component';
+import { ListItemPolicyComponent } from './list-item-policy/list-item-policy.component';
+import { CheckoutProductComponent } from './checkout/checkout-product/checkout-product.component';
+import { PersonalInformationComponent } from './checkout/checkout-product/personal-information/personal-information.component';
+import { AddressesComponent } from './checkout/checkout-product/addresses/addresses.component';
+import { ShippingMethodsComponent } from './checkout/checkout-product/shipping-methods/shipping-methods.component';
+import { PaymentReviewComponent } from './checkout/checkout-product/payment-review/payment-review.component';
+import { LoginComponent } from './login/login.component';
+import { NewCustumerComponent } from './login/new-custumer/new-custumer.component';
+import { RegisteredCustumerComponent } from './login/registered-custumer/registered-custumer.component';
 
 
 @NgModule({
@@ -47,6 +60,19 @@ import { PaginationComponent } from './pagination/pagination.component';
     BreadcrumbComponent,
     BlockTemplateProductComponent,
     PaginationComponent,
+    CartComponent,
+    CheckoutComponent,
+    ListProductCartComponent,
+    TotalCartComponent,
+    ListItemPolicyComponent,
+    CheckoutProductComponent,
+    PersonalInformationComponent,
+    AddressesComponent,
+    ShippingMethodsComponent,
+    PaymentReviewComponent,
+    LoginComponent,
+    NewCustumerComponent,
+    RegisteredCustumerComponent,
 
   ],
   imports: [

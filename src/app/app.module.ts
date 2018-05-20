@@ -36,6 +36,7 @@ import { PaymentReviewComponent } from './checkout/checkout-product/payment-revi
 import { LoginComponent } from './login/login.component';
 import { NewCustumerComponent } from './login/new-custumer/new-custumer.component';
 import { RegisteredCustumerComponent } from './login/registered-custumer/registered-custumer.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { RegisteredCustumerComponent } from './login/registered-custumer/registe
     LoginComponent,
     NewCustumerComponent,
     RegisteredCustumerComponent,
+    ContactComponent,
 
   ],
   imports: [

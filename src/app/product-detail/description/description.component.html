@@ -10,8 +10,7 @@
       </ul>
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-          <p><b>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio, laudantium.</b></p>
-          <p>Lorem ipsumsum dolorendis tempore ullam nam nihil?</p>
+          <p *ngFor=" let book of books " >{{book.shortDescription}}</p>
         </div>
         <div class="tab-pane fade " id="profile" role="tabpanel" aria-labelledby="profile-tab">
           <p><b>Reference:</b> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, totam?</p>

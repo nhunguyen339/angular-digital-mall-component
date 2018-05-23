@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../photo.service';
-import { Photo } from '../photo';
+import { Book } from '../models/book';
+import { BookService } from '../models/book.service'
 
 
 @Component({
@@ -9,17 +9,17 @@ import { Photo } from '../photo';
   styleUrls: ['./block-template-product.component.css']
 })
 export class BlockTemplateProductComponent implements OnInit {
-  photos : Photo[] = [];
+  books : Book[] = [];
 
-  constructor( private photoService: PhotoService ) { }
+  constructor( private bookService: BookService ) { }
 
   ngOnInit() {
-    this.getPhotos();
+    this.getBooks();
   }
 
-  getPhotos():void {
-    this.photoService.getPhotos()
-    .subscribe( photos => this.photos = photos.slice(1,5) );
+  getBooks():void {
+    this.bookService.getBooks()
+    .subscribe( books => this.books = books.slice(1,5) );
   }
 
 }

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -40,10 +42,20 @@ import { RegisteredCustumerComponent } from './login/registered-custumer/registe
 import { ContactComponent } from './contact/contact.component';
 import { ModalReviewComponent } from './product-detail/review/modal-review/modal-review.component';
 
-import { PhotoService } from './photo.service';
+import { BookService } from './models/book.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
 
 
 @NgModule({
+  imports: [
+    BrowserModule,
+    AppBootstrapModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
+
+  ],
   declarations: [
     AppComponent,
     ProductDetailComponent,
@@ -80,16 +92,10 @@ import { PhotoService } from './photo.service';
     RegisteredCustumerComponent,
     ContactComponent,
     ModalReviewComponent,
-
+    PageNotFoundComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppBootstrapModule,
-    FormsModule,
-    HttpClientModule,
-  ],
-  providers: [PhotoService],
+  providers: [BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

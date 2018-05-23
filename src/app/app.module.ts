@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule }    from '@angular/forms';
+import { HttpClientModule }    from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
@@ -37,6 +38,9 @@ import { LoginComponent } from './login/login.component';
 import { NewCustumerComponent } from './login/new-custumer/new-custumer.component';
 import { RegisteredCustumerComponent } from './login/registered-custumer/registered-custumer.component';
 import { ContactComponent } from './contact/contact.component';
+import { ModalReviewComponent } from './product-detail/review/modal-review/modal-review.component';
+
+import { PhotoService } from './photo.service';
 
 
 @NgModule({
@@ -75,13 +79,17 @@ import { ContactComponent } from './contact/contact.component';
     NewCustumerComponent,
     RegisteredCustumerComponent,
     ContactComponent,
+    ModalReviewComponent,
+
 
   ],
   imports: [
     BrowserModule,
     AppBootstrapModule,
+    FormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [PhotoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

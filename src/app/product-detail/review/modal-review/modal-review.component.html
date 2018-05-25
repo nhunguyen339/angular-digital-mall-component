@@ -1,5 +1,5 @@
 <div class="modal fade" id="writeYourReview" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Write your review</h5>
@@ -7,26 +7,31 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="titleReview" class="col-form-label">Your title review:</label>
-            <input type="text" class="form-control" id="titleReview">
-          </div>
-          <div class="form-group">
-            <label for="yourReview" class="col-form-label">Your review:</label>
-            <textarea class="form-control" id="yourReview"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="userName" class="col-form-label">User name:</label>
-            <input type="text" class="form-control" id="userName">
-          </div>
-        </form>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto!</p>
+      <div class="row modal-body">
+        <div class="col-md-6">
+          <img src="../../../assets/images/best-seller-frid.jpg" class="w-100" alt="">
+          <b>The best is yet to come' Framed poster</b>
+        </div>
+        <div class="col-md-6">
+          <form>
+            <div class="form-group">
+              <label for="titleReview" class="col-form-label">Your title review:</label>
+              <input type="text" class="form-control" id="titleReview">
+            </div>
+            <div class="form-group">
+              <label for="yourReview" class="col-form-label">Your review:</label>
+              <textarea class="form-control" id="yourReview"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="userName" class="col-form-label">User name:</label>
+              <input type="text" class="form-control" id="userName">
+            </div>
+          </form>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn ins-btn-outline-brand">Send message</button>
+        <button type="button" class="btn ins-btn-outline-brand">Submit review</button>
       </div>
     </div>
   </div>

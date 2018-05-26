@@ -4,12 +4,13 @@ import { Size } from './size';
 import { Genre } from './genre';
 
 export class Book {
-  _id: number;
+  _id: string;
   title: string;
   author: string;
   publisher: string;
   pages: number;
   weight: number;
+  releaseDate: string;
   sku: number;
   shortDescription: string;
   fullDescription: string;

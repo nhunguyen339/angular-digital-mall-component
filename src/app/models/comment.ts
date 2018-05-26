@@ -1,5 +1,5 @@
 export class Comment {
-  id: string;
+  _id: string;
   rate: number;
   commentBody: string;
   createdDate: string;

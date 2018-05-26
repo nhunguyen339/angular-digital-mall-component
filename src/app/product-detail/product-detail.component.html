@@ -1,23 +1,23 @@
-<div class="container">
+<div *ngIf="book"  class="container">
     <!-- .row1:breadcrumb -->
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb [book]="book"></app-breadcrumb>
     <!-- .row1:breadcrumb-end -->
 
 
     <!-- .row2: detail  -->
-    <app-more-detail></app-more-detail>
+    <app-more-detail [book]="book" ></app-more-detail>
     <!-- .row2: detail-end -->
 
     <!-- row3: description -->
-    <app-description></app-description>
+    <app-description [book]="book"></app-description>
     <!-- row3: description-end -->
-    
+
     <!-- row4:review -->
-    <app-review></app-review>
+    <app-review [book]="book" ></app-review>
     <!-- row4:review-end -->
-    
+
     <!-- row5: product relative -->
-    <app-block-template-product></app-block-template-product>
+    <app-block-template-product ></app-block-template-product>
     <!-- row5: product relative-end -->
 
   </div>

@@ -12,8 +12,6 @@
   padding: 10px 0;
   border: none;
   display: inline;
-  /* border-bottom: 2px solid rgb(172, 147, 108); */
-  /* border-bottom: 1px solid  rgb(172, 147, 108); */
 }
 .ins-description ul li a:hover {
   transition: all 300ms ease-in;
@@ -23,12 +21,5 @@
       -o-transition: all 300ms ease-in;
   border-bottom: 2px solid rgb(172, 147, 108);
 }
-.ins-description ul li a:active {
-  transition: all 300ms ease-in;
-      -webkit-transition: all 300ms ease-in;
-      -moz-transition: all 300ms ease-in;
-      -ms-transition: all 300ms ease-in;
-      -o-transition: all 300ms ease-in;
-  border-bottom: 2px solid rgb(172, 147, 108) !important;
-}
+
 

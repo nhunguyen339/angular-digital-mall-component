@@ -1,42 +1,53 @@
+
 <div class="row ins-detail">
-    <div class="col-md-12 col-12">
-      <h4 class=" ins-bg-second text-white p-2 mb-0">Frid Conjed Fox</h4>
+    <div class="col-md-12 col-12" >
+      <h4 class=" ins-bg-second text-white p-2 mb-3">{{book.title}}</h4>
+      <p>{{book.shortDescription}}</p>
     </div>
     <div class="col-md-6 col-12  ins-detail-img">
-      <img class="my-4 w-100 ins-box-shadow" src="../assets/images/best-seller-frid.jpg" alt="">
+      <img class="my-3 w-100 ins-box-shadow" src="{{book.images.main}}" alt="">
       <span class="btn btn-danger rounded-circle ins-btn-deal">
           -10%
       </span>
       <ul class="list-unstyled d-block mb-4">
-        <li class="d-inline mr-2"><img class="img-thumbnail" src="../assets/images/new-product-machine.jpg" alt=""></li>
+        <li class="d-inline mr-2"><img class="img-thumbnail" src="{{book.images.main}}" alt=""></li>
       </ul>
     </div>
 
     <div class="col-md-6 col-12 ins-detail-text pl-4 mt-4">
-      <b>Frid Conjed Fox</b>
-      <p><small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small></p>
-      <p>Cushion with invisible zip on the back. 32x32cm</p>
-      <h3 class="ins-text-brand">$65.23 </h3>
+      <h3 class="ins-text-brand">{{book.sellingPrice}}</h3>
       <small class="text-muted">
-          | <s> $26.34</s>
+          | <s> {{book.previousPrice}}</s>
       </small>
-      <label class="d-block mt-3" for="input-color">Color:</label>
+      <!-- <label class="d-block mt-3" for="input-color">Color:</label>
       <select class="btn ins-input-quantity-color" name="" id="input-color">
         <option value="" class="active">White</option>
         <option value="" class="active">Black</option>
         <option value="" class="active">Pink</option>
-      </select>
+      </select> -->
       <div class="ins-detail-add-to-cart mt-3  d-flex ">
-        <div>
-            <label class="d-block " for="number-of-product">Quantity:</label>
-            <input class="ins-input-quantity-color w-75" type="number" name="" value="1" min="1">
-        </div>
-        <button type="button" class="btn ins-btn-outline-brand mt-2 ml-4">Add to cart</button>
-        <span class="ml-4 mt-3 d-flex align-items-center">
-            <i class="material-icons ins-text-second mr-2">check</i> <b>In stock</b>
+        <input class=" btn p-2 ins-btn-outline-brand" type="number" name="" value="1" min="1">
+        <button type="button" class="btn ins-btn-outline-brand ml-4">Add to cart</button>
+        <span class="ml-4 d-flex align-items-center">
+            <i class="material-icons ins-text-second">check</i> <b>In stock</b>
         </span>
       </div>
-        <app-list-item-policy></app-list-item-policy>
+      <app-list-item-policy></app-list-item-policy>
+      <hr>
+      <div class="ins-share-icon">
+          <a href="http://www.facebook.com/share.php?u=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html&t=">
+            <i class="fab fa-facebook-f "></i>
+          </a>
+          <i class="fab fa-youtube"></i>
+          <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html&title=&source=BLOGNAME&summary=EXCERPT">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://plus.google.com/share?url=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+            <a href="http://twitter.com/home?status=%20-%20http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
     </div>
-
   </div>

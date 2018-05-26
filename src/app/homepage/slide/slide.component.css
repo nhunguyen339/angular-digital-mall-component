@@ -1,0 +1,15 @@
+.carousel-caption {
+  top: 100px;
+  position: absolute;
+}
+.carousel-caption p {
+  width: 500px;
+}
+.caption-right {
+  right: 100px;
+  left: auto;
+}
+.caption-left {
+  left: 100px;
+  right: auto;
+}

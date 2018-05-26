@@ -14,12 +14,12 @@ const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'product-detail', component: ProductDetailComponent },
+  { path: 'product-detail/:_id', component: ProductDetailComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent },
 ]
 
 @NgModule ({

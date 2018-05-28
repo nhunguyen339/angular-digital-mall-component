@@ -19,6 +19,13 @@ const routes : Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
+  // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
+  // { path: ':category/:subcategory', component: CategoryComponent },
+  // { path: ':category/:_id', component: ProductDetailComponent },
+  { path: 'category', component: CategoryComponent,
+    children: [
+      { path: ':_id', component: ProductDetailComponent },
+    ] },
   { path: '**', component: PageNotFoundComponent },
 ]
 

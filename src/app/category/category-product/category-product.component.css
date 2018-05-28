@@ -1,5 +1,17 @@
+
 .ins-img-category {
-  height: 20%;
+  position: relative;
+}
+.ins-img-category div {
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  left: 50px;
+  font-size: 30px;
+  font-weight: 100;
+}
+.ins-img-category img {
+  height: 250px;
   object-fit: cover;
   width: 100%;
 }

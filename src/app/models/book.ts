@@ -17,7 +17,7 @@ export class Book {
   previousPrice: number;
   sellingPrice: number;
   comments: Comment[];
-  createDate: number;
+  createDate: string;
   images: Image;
   size: Size[];
   genre: Genre[];

@@ -44,6 +44,7 @@ import { ModalReviewComponent } from './product-detail/review/modal-review/modal
 
 import { BookService } from './models/book.service';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { GenreService } from './models/genre.service';
 
 
 
@@ -95,7 +96,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     PageNotFoundComponent,
 
   ],
-  providers: [BookService],
+  providers: [
+    BookService,
+    GenreService,
+    BannerService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

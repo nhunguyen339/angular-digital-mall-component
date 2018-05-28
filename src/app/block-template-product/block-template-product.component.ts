@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookService } from '../models/book.service'
-
+// import { GenreService } from '../models/genre.service';
+// import { Genre } from '../models/genre';
 
 @Component({
   selector: 'app-block-template-product',
@@ -10,11 +11,16 @@ import { BookService } from '../models/book.service'
 })
 export class BlockTemplateProductComponent implements OnInit {
   books : Book[] = [];
+  // genres: Genre[] =[];
 
-  constructor( private bookService: BookService ) { }
+  constructor(
+    private bookService: BookService,
+    // private genreSerive: GenreService
+   ) { }
 
   ngOnInit() {
     this.getBooks();
+    // this.getGenres();
   }
 
   getBooks():void {
@@ -22,4 +28,14 @@ export class BlockTemplateProductComponent implements OnInit {
     .subscribe( books => this.books = books.slice(1,5) );
   }
 
+  // getGenres():void {
+  //   this.genreSerive.getGenres()
+  //     .subscribe( genres => this.genres = genres );
+  // }
+  // getName():void {
+  //   this.genreService.getName
+  // }
+
 }
+
+

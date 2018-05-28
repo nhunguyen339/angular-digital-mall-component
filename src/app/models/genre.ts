@@ -1,4 +1,5 @@
 export class Genre {
   name: string;
-  id: string;
+  _id: string;
+  created_date:string;
 }

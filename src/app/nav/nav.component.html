@@ -70,15 +70,15 @@
           aria-haspopup="true" aria-expanded="false">
           Category
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item ins-a-brand" routerLink="/category">Laptop</a>
-          <a class="dropdown-item ins-a-brand" routerLink="/category">Smartphone</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+          <a *ngFor="let genre of genres" class="dropdown-item ins-a-brand" routerLink="/category">{{genre.name}}</a>
+          <!-- <a class="dropdown-item ins-a-brand" routerLink="/category">Smartphone</a>
           <a class="dropdown-item ins-a-brand" routerLink="/category">TV & Audio</a>
           <a class="dropdown-item ins-a-brand" routerLink="/category">Smartphone</a>
           <a class="dropdown-item ins-a-brand" routerLink="/category">Camera</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item ins-a-brand" routerLink="/category">Software</a>
-          <a class="dropdown-item ins-a-brand" routerLink="/category">Acessories</a>
+          <a class="dropdown-item ins-a-brand" routerLink="/category">Acessories</a> -->
         </div>
       </div>
       <!-- <div class="input-group">

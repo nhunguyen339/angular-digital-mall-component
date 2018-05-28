@@ -1,16 +1,16 @@
 <div class="container">
 
     <!-- .row1:breadcrumb -->
-    <app-breadcrumb></app-breadcrumb>
+    <app-breadcrumb [book] ="book" ></app-breadcrumb>
     <!-- .row1:breadcrumb-end -->
 
     <!-- row2: filter -->
     <div class="row ins-filter-product">
       <div class="col-md-3">
-        <app-filter-product></app-filter-product>
+        <app-filter-product [book]="book" ></app-filter-product>
       </div>
       <div class="col-md-9 ins-filter-product-list position-relative">
-        <app-category-product></app-category-product>
+        <app-category-product [book]="book" ></app-category-product>
       </div>
     </div>
     <!-- row2: filter-end -->

@@ -7,3 +7,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.ins-nav-category {
+  font-size: 15px;
+  background-color: #eee;
+}
+@media (min-width: 991px) {
+
+}

@@ -41,11 +41,12 @@ import { NewCustumerComponent } from './login/new-custumer/new-custumer.componen
 import { RegisteredCustumerComponent } from './login/registered-custumer/registered-custumer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ModalReviewComponent } from './product-detail/review/modal-review/modal-review.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 import { BookService } from './models/book.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GenreService } from './models/genre.service';
-
+import { BannerService } from './models/banner.service';
+import { SearchComponent } from './nav/search/search.component';
 
 
 @NgModule({
@@ -55,7 +56,6 @@ import { GenreService } from './models/genre.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule
-
   ],
   declarations: [
     AppComponent,
@@ -94,13 +94,13 @@ import { GenreService } from './models/genre.service';
     ContactComponent,
     ModalReviewComponent,
     PageNotFoundComponent,
+    SearchComponent,
 
   ],
   providers: [
     BookService,
     GenreService,
     BannerService
-
   ],
   bootstrap: [AppComponent]
 })

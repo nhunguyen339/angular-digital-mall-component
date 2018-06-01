@@ -13,3 +13,16 @@
   left: 100px;
   right: auto;
 }
+  /* slide */
+  .ins-slide-home {
+    margin: 0px !important  ;
+  }
+  .ins-slide-home {
+    width: 100%;
+  }
+  .img-fluid {
+    width: 100%;
+  }
+  /* slide-end */
+
+

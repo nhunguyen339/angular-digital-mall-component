@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
+import { SearchComponent } from "./nav/search/search.component";
 
 const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes : Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'search', component: SearchComponent },
   // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
   // { path: ':category/:subcategory', component: CategoryComponent },
   // { path: ':category/:_id', component: ProductDetailComponent },

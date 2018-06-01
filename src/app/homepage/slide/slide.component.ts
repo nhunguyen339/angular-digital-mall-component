@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-slide',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slide.component.css']
 })
 export class SlideComponent implements OnInit {
+  @Input() banners ;
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
-
 }

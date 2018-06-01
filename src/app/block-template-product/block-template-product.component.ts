@@ -25,7 +25,7 @@ export class BlockTemplateProductComponent implements OnInit {
 
   getBooks():void {
     this.bookService.getBooks()
-    .subscribe( books => this.books = books.slice(1,5) );
+    .subscribe( booksnhu => this.books = booksnhu.slice(1,5) );
   }
 
   // getGenres():void {

@@ -1,0 +1,16 @@
+button {
+  background: transparent;
+}
+
+@media (max-width: 991px) {
+  .ins-nav-collapse ul li {
+    padding: 8px 0px;
+  }
+}
+.ins-search-result {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  right: 0;
+  top: 54px;
+}

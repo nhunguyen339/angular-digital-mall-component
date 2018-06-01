@@ -1,5 +1,22 @@
-<app-slide></app-slide>
-<div class="container">
+<!-- <div> -->
+    <nav class="navbar ins-nav-category">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-3 col-sm-4">
+              <ul class="list-unstyled">
+                <li>
+                    <a *ngFor="let genre of genres" class="dropdown-item px-0 ins-a-brand" routerLink="/category">{{genre.name}}</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-9 col-sm-8">
+              <app-slide [banners]="banners" ></app-slide>
+            </div>
+          </div>
+
+        </div>
+    </nav>
+  <div class="container">
   <app-list-item-support></app-list-item-support>
   <app-new-feature-best-product></app-new-feature-best-product>
   <div class="row ins-img-single-quote">
@@ -24,5 +41,6 @@
     </div>
   </div>
   <app-list-item-company></app-list-item-company>
-</div>
+  </div>
 
+<!-- </div> -->

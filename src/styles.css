@@ -31,7 +31,9 @@
     border: 0px !important;
     background-color: #eee !important;
   }
-
+  .form-control:focus {
+    background-color: transparent;
+  }
   .ins-a-brand:active {
     background-color: #eee;
   }
@@ -77,6 +79,7 @@
   .ins-a-brand:hover {
     color: rgb(172, 147, 108) !important;
     text-decoration: none !important;
+    background-color: transparent;
   }
   .ins-a-brand:active {
     color: rgb(172, 147, 108) !important;
@@ -145,46 +148,6 @@
   }
 
 
-
-
-  /* header */
-  /* nav-top */
-  /* .ins-nav-top {
-    padding: 0;
-    height: 35px;
-  }
-  .ins-nav-top i {
-    font-size: 15px;
-  } */
-  .ins-nav-top ul:nth-of-type(2) {
-    right: 0;
-  }
-  /* nav-top-end */
-
-  /* slide */
-  .ins-slide-home {
-    margin: 0px !important  ;
-  }
-  .ins-slide-home {
-    width: 100%;
-  }
-  .img-fluid {
-    width: 100%;
-  }
-  /* slide-end */
-
-
-  /* list-item-1 */
-  .ins-list-item-1 .media p, .ins-list-item-1 .media h5 {
-    margin-bottom: 0px;
-    font-size: 14px;
-  }
-  i.material-icons.ins-icon-1 {
-    font-size: 40px;
-    color:rgb(172, 147, 108);
-  }
-  /* list-item-1-end */
-
   /* card-product */
   .ins-card-product {
     box-shadow: 2px 2px 10px 4px #eee;
@@ -242,25 +205,7 @@
   }
   /* ins-brand-product-end */
 
-  /* ins-list-item-2 */
-  .ins-list-item-2 img {
-    width: 100%;
-    box-shadow: 2px 2px 10px 4px #eee;
-  }
-  /* ins-list-item-2-end */
 
-  /* footer */
-  .payment-app .payment {
-    width: 100%;
-  }
-  .ins-footer-2 i {
-    font-size: 19px;
-    color: rgb(172, 147, 108);
-  }
-  /* .footer-year {
-    background-color:rgb(0, 171, 169) ;
-  } */
-  /* footer-end */
 
   .ins-share-icon i {
     border: 1px solid rgb(0, 171, 169);

@@ -7,8 +7,10 @@ import { Observable } from 'rxjs';
 export class BannerService {
   bannersUrl = "https://green-web-bookstore.herokuapp.com/api/banners";
   constructor(
-    private bannerService : BannerService
+    private http: HttpClient
   ) {}
 
-  getBanners():Observable<Banner[]>
+  getBanners():Observable<Banner[]> {
+    return this.http.get<Banner[]>(this.bannersUrl);
+  }
 }

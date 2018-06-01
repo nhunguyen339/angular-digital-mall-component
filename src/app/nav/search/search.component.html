@@ -1,0 +1,14 @@
+<div class="input-group">
+    <input type="search" id="inputSearchHeader" class="input-group-text form-control ins-input-search" placeholder="go search"
+      aria-label="Username" aria-describedby="basic-addon1" #searchBox id="search-box" (keyup)="search(searchBox.value)" >
+      <ul class="ins-search-result">
+        <li *ngFor="let book of books$ | async" >
+          <a routerLink="/product-detail/{{book._id}}">
+            {{book.title}}
+          </a>
+        </li>
+      </ul>
+    <div class="input-group-append">
+      <button type="submit" class="btn border-white text-white  form-control" aria-describedby="inputSearchHeader" >Search</button>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+ /* list-item-1 */
+ .ins-list-item-1 .media p, .ins-list-item-1 .media h5 {
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+i.material-icons.ins-icon-1 {
+  font-size: 40px;
+  color:rgb(172, 147, 108);
+}
+/* list-item-1-end */

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book  } from '../models/book';
 import { BookService } from '../models/book.service';
 import { ActivatedRoute } from '@angular/router';
+import { Genre } from '../models/genre';
+import { GenreService } from '../models/genre.service';
 
 
 @Component({
@@ -11,9 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
   book: Book;
+  genre: Genre;
   constructor(
     private bookService : BookService,
-    private route : ActivatedRoute
+    private route : ActivatedRoute,
+    private genreService : GenreService
   ) { }
 
   ngOnInit() {
@@ -22,7 +26,11 @@ export class CategoryComponent implements OnInit {
   getBook():void {
     let id : string;
     id = this.route.snapshot.paramMap.get('_id');
-    this.bookService.getBook(id)
-      .subscribe( book => this.book = book );
+  }
+  getGenre():void {
+    let id: string;
+    id = this.route.snapshot.paramMap.get('_id');
+    this.genreService.getGenre(id)
+      .subscribe( genre => this.genre = genre );
   }
 }

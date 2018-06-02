@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container" *ngIf="book">
 
     <!-- .row1:breadcrumb -->
-    <app-breadcrumb [book] ="book" ></app-breadcrumb>
+    <!-- nho bo input do -->
+    <app-breadcrumb ></app-breadcrumb>
     <!-- .row1:breadcrumb-end -->
 
     <!-- row2: filter -->
     <div class="row ins-filter-product">
       <div class="col-md-3">
-        <app-filter-product [book]="book" ></app-filter-product>
+        <app-filter-product [book]="book"></app-filter-product>
       </div>
       <div class="col-md-9 ins-filter-product-list position-relative">
-        <app-category-product [book]="book" ></app-category-product>
+        <app-category-product [book]="book"></app-category-product>
       </div>
     </div>
     <!-- row2: filter-end -->
-
   </div>

@@ -1,7 +1,7 @@
-<div class="row">
+<div class="row" *ngIf="books">
     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ins-block-template" *ngFor='let book of books'>
       <div class="card text-center border-0 my-4 ins-card-product">
-        <a routerLink="/product-detail/{{book._id}}">
+        <a routerLink="/detail/{{book._id}}">
           <img class="ins-img-product" src="{{book.images.main}}" alt="">
         </a>
         <span class=" btn-danger rounded-circle ins-btn-deal">

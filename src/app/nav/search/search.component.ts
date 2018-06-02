@@ -17,7 +17,6 @@ export class SearchComponent implements OnInit {
     private bookService: BookService
   ) { }
 
-
   search(term: string):void {
     this.searchTerms.next(term);
     }

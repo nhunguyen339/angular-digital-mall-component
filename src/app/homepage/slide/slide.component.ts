@@ -13,4 +13,5 @@ export class SlideComponent implements OnInit {
 
   ngOnInit() {
   }
+
 }

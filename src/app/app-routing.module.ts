@@ -15,7 +15,9 @@ const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
   { path: 'category', component: CategoryComponent },
-  { path: 'product-detail/:_id', component: ProductDetailComponent },
+  // { path: 'books/category/:_id', component: CategoryFilterComponent },
+
+  { path: 'detail/:_id', component: ProductDetailComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
@@ -24,10 +26,8 @@ const routes : Routes = [
   // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
   // { path: ':category/:subcategory', component: CategoryComponent },
   // { path: ':category/:_id', component: ProductDetailComponent },
-  { path: 'category', component: CategoryComponent,
-    children: [
-      { path: ':_id', component: ProductDetailComponent },
-    ] },
+
+
   { path: '**', component: PageNotFoundComponent },
 ]
 

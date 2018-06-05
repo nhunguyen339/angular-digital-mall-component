@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SearchComponent } from "./nav/search/search.component";
+import { AddGenreComponent } from "./add-genre/add-genre.component";
 
 const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -26,8 +27,7 @@ const routes : Routes = [
   // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
   // { path: ':category/:subcategory', component: CategoryComponent },
   // { path: ':category/:_id', component: ProductDetailComponent },
-
-
+  { path: 'add-genre', component: AddGenreComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 

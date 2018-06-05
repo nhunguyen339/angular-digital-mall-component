@@ -3,10 +3,14 @@ import { Book } from './book';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, } from 'rxjs';
 import { of } from 'rxjs/observable/of';
+import { Genre } from './genre';
+
+
 
 @Injectable()
 export class BookService {
   booksUrl = "https://green-web-bookstore.herokuapp.com/api/books";
+
   constructor (private http: HttpClient ) {}
 
   getBooks():Observable<Book[]> {
@@ -24,5 +28,5 @@ export class BookService {
     }
     return this.http.get<Book[]>(`${this.booksUrl}/?title=${term}`)
   }
-  add
+
 }

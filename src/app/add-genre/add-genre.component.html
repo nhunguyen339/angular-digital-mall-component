@@ -1,0 +1,40 @@
+<!-- <div class="container">
+    <div class="row justify-content-center my-4 d-flex ">
+        <label for="" class="col-md-4 col-12 m-0">Create new name Genre: </label>
+        <div class="col-md-4 col-12">
+            <input type="text" class="w-100" #genreName>
+            <button  (click)="add(genreName.value); genreName.value=''" class="btn ins-btn-outline-brand float-right mt-4">Add</button>
+            <ul class="list-unstyled">
+              <li>
+                  <a *ngFor="let genre of genres" class="dropdown-item px-0 ins-a-brand" routerLink="/category">{{genre.name}}</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<div class="container">
+    <div class="row justify-content-center my-4 d-flex ">
+        <label for="" class="col-md-4 col-12 m-0">Create new name Genre: </label>
+        <div class="col-md-4 col-12">
+            <input type="text" class="w-100" [(ngModel)]="ten" >
+            <button [disabled]="addDisable(ten)"  (click)="add(ten); ten=''" class="btn ins-btn-outline-brand float-right mt-4">Add</button>
+            <ul class="list-unstyled d-inline-block">
+              <li *ngFor="let genre of genres"   class="d-flex py-3 justify-content-between align-items-center">
+                  <a (click)="onSelect(genre)" class="dropdown-item px-0 ins-a-brand" >{{genre.name}}</a>
+                  <button  (click)="delete(genre)" class="btn ins-a-brand">x</button>
+              </li>
+            </ul>
+            <div *ngIf="selectedGenre">
+              <h2>{{selectedGenre.name | uppercase }}</h2>
+              <div><span>id:</span>{{selectedGenre._id}}</div>
+              <label for=""> name:
+                <input type="text" class="w-100" [(ngModel)]="selectedGenre.name" >
+              </label>
+              <button   (click)="save()" class="btn ins-btn-outline-brand float-right mt-4">Save</button>
+              <button   (click)="goBack()" class="btn ins-btn-outline-brand float-right mt-4">Back</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+

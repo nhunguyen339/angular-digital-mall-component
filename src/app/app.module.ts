@@ -47,6 +47,7 @@ import { BookService } from './models/book.service';
 import { GenreService } from './models/genre.service';
 import { BannerService } from './models/banner.service';
 import { SearchComponent } from './nav/search/search.component';
+import { AddGenreComponent } from './add-genre/add-genre.component';
 
 
 @NgModule({
@@ -95,6 +96,7 @@ import { SearchComponent } from './nav/search/search.component';
     ModalReviewComponent,
     PageNotFoundComponent,
     SearchComponent,
+    AddGenreComponent,
 
   ],
   providers: [

@@ -10,6 +10,7 @@ const httpOptions = {
 @Injectable()
 export class GenreService {
 
+
   genresUrl = "https://green-web-bookstore.herokuapp.com/api/genres";
 
   constructor ( private http : HttpClient ) {}
@@ -37,9 +38,9 @@ export class GenreService {
   //   return this.http.put(this.genresUrl, genre, httpOptions )
   // }
 
-  updateGenre(genre:Genre): Observable<any> {
-    // const url = `${this.genresUrl}/${genre._id}`;
-    return this.http.put("", genre, httpOptions )
+  updateGenre(genre:Genre): Observable<Genre> {
+    const url = `${this.genresUrl}/${genre._id}`;
+    return this.http.put<Genre>(url, genre, httpOptions )
   }
   // getName(name:string): Observable<Genre> {
   //   const url = `${this.genresUrl}/${name}`;

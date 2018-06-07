@@ -18,10 +18,13 @@
           <br>
           <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
           <br>
-          <button type="button" class="btn ins-btn-outline-brand mt-2">Add to cart</button>
+          <button type="button"
+                  class="btn ins-btn-outline-brand mt-2"
+                  (click)="addProductToCart(book, 1)"
+                  >Add to cart</button>
         </div>
-      </div>
     </div>
   </div>
-
+</div>
+  <!-- *ngIf="productInCart(book) | async " -->
 

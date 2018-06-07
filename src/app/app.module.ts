@@ -49,6 +49,10 @@ import { BannerService } from './models/banner.service';
 import { SearchComponent } from './nav/search/search.component';
 import { AddGenreComponent } from './add-genre/add-genre.component';
 
+import { DeliveryOptionsService } from './models/delivery-options.service';
+import { ShoppingCartService } from './models/shopping-cart.service';
+import { LocalStorageService, StorageService } from './models/storage.service';
+import { DeliveryOptions } from './models/delivery-options';
 
 @NgModule({
   imports: [
@@ -56,7 +60,7 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
     AppBootstrapModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [
     AppComponent,
@@ -102,7 +106,17 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
   providers: [
     BookService,
     GenreService,
-    BannerService
+    BannerService,
+    DeliveryOptionsService,
+    ShoppingCartService,
+    // LocalStorageService
+    { provide: StorageService, useClass: LocalStorageService },
+    {
+      deps: [StorageService, BookService, DeliveryOptionsService],
+      provide: ShoppingCartService,
+      useClass: ShoppingCartService
+    }
+
   ],
   bootstrap: [AppComponent]
 })

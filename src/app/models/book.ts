@@ -21,4 +21,12 @@ export class Book {
   images: Image;
   size: Size[];
   genre: Genre[];
+
+  public updateFrom(src: Book):void {
+    this._id = src._id;
+    this.title = src.title;
+    this.author = src.author;
+    this.publisher = src.publisher;
+    this.genre = src.genre;
+  }
 }

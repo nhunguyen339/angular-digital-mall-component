@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Genre } from '../models/genre';
 import { GenreService } from '../models/genre.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,8 +11,7 @@ import { Location } from '@angular/common'
 })
 export class AddGenreComponent implements OnInit {
   genres : Genre[] =[];
-  genre : Genre;
-  ten:string;
+  newGenre : Genre;
   selectedGenre : Genre;
   constructor(
     private genreService : GenreService,
@@ -22,29 +21,24 @@ export class AddGenreComponent implements OnInit {
 
   ngOnInit() {
     this.getGenres();
-    this.getGenre();
+    this.newGenre = new Genre()
+    this.newGenre.name = '';
   }
 
   getGenres():void {
     this.genreService.getGenres()
       .subscribe( genres => this.genres = genres )
   }
-  getGenre():void {
-    let id: string;
-    id = this.route.snapshot.paramMap.get('_id');
-    this.genreService.getGenre(id)
-      .subscribe( genre => this.genre =genre );
-  }
-  add(name : string ): void {
-    name = name.trim();
-    if (!name) {return;}
-    this.genreService.addGenre({name} as Genre)
+
+  add(): void {
+    this.genreService.addGenre(this.newGenre)
       .subscribe( genre =>
-      { this.genres.push(genre)} //==> push du lieu vao trong may, chua len server
-        )
+      {this.newGenre.name = '';
+      this.genres.push(genre)}
+    )
   }
-  addDisable(ten:string):boolean {
-    return !this.ten;
+  addDisable():boolean {
+    return this.newGenre.name.length == 0;
   }
   delete(genre: Genre):void {
     this.genres = this.genres.filter( g => g !== genre );
@@ -55,8 +49,8 @@ export class AddGenreComponent implements OnInit {
   }
 
  save():void {
-   this.genreService.updateGenre(this.genre)
-    .subscribe(_ => this.goBack()
+   this.genreService.updateGenre(this.selectedGenre)
+    .subscribe(
     )
  }
 

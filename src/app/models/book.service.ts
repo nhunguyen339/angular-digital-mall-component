@@ -5,13 +5,18 @@ import { Observable, } from 'rxjs';
 import { of } from 'rxjs/observable/of';
 import { Genre } from './genre';
 
-
+import "rxjs/add/operator/map";
+let count = 0;
 
 @Injectable()
 export class BookService {
   booksUrl = "https://green-web-bookstore.herokuapp.com/api/books";
+  private books : Observable<Book[]>;
 
-  constructor (private http: HttpClient ) {}
+  constructor (
+    private http: HttpClient,
+  ) {
+  }
 
   getBooks():Observable<Book[]> {
     return this.http.get<Book[]>(this.booksUrl);
@@ -29,4 +34,16 @@ export class BookService {
     return this.http.get<Book[]>(`${this.booksUrl}/?title=${term}`)
   }
 
+//   public all(): Observable<Book[]> {
+//     return this.cachingServiceBase.cache<Book[]>(() => this.books,
+//                               (val: Observable<Book[]>) => this.books = val,
+//                               () => this.http
+//                                         .get(this.booksUrl)
+//                                         .map((response) => response.json()
+//                                                                     .map((item) => {
+//                                                                       let model = new Book();
+//                                                                       model.updateFrom(item);
+//                                                                       return model;
+//                                                                     } )));
+//  }
 }

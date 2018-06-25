@@ -4,11 +4,13 @@ import { Genre } from '../models/genre';
 import { Banner } from '../models/banner';
 import { BannerService } from '../models/banner.service';
 import { Observable, Subject, Subscription } from "rxjs";
-import { switchMap, distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { switchMap, distinctUntilChanged, debounceTime, first } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { ShoppingCart } from '../models/shopping-cart';
 import { BookService } from '../models/book.service';
 import { ShoppingCartService } from '../models/shopping-cart.service';
+import { UserService } from '../models/login-logout/user.service';
+import { User } from '../models/login-logout/user';
 
 @Component({
   selector: 'app-nav',
@@ -16,7 +18,7 @@ import { ShoppingCartService } from '../models/shopping-cart.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  userNew = new User();
   genres : Genre[];
   banners : Banner[] ;
 
@@ -31,17 +33,24 @@ export class NavComponent implements OnInit {
     private bannerService : BannerService,
 
     private bookService: BookService,
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
+    private userService : UserService
   ) { }
 
   public ngOnInit():void {
     this.getGenres();
     this.getBanners();
     this.getBooks();
-    this.cart = this.shoppingCartService.get();
-    this.cartSubscription = this.cart.subscribe((cart) => {
-      this.itemCount = cart.items.map((x) => x.quantity ).reduce((p, n) => p + n, 0);
-    } );
+    this.getUser();
+    // this.cart = this.shoppingCartService.get();
+    // this.cartSubscription = this.cart.subscribe((cart) => {
+    //   this.itemCount = cart.items.map((x) => x.quantity ).reduce((p, n) => p + n, 0);
+    // } );
+
+
+  }
+  getUser():void {
+    this.userService.getAll().pipe(first()).subscribe(_ => this.userNew = _.user )
   }
 
   getGenres():void {

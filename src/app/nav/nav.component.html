@@ -20,11 +20,18 @@
     </ul>
     <ul class="list-unstyled mb-0 float-right position-relative">
       <li class="nav-item  float-left navbar-text border-right pr-4 d-flex align-items-center  ">
-        <a routerLink="/login" class="pr-1 py-0 ins-a-brand">
+        <a routerLink="/account" class="pr-1 py-0 ins-a-brand">
           <i class="material-icons">account_circle</i>
         </a>
         <small>
-          <a routerLink="/login" class="nav-link ins-a-brand px-0 my-0">My Account</a>
+          <a routerLink="/account" class="nav-link ins-a-brand px-0 my-0">
+            <div *ngIf="userNew">
+                {{userNew.last}} {{userNew.first}}
+            </div>
+            <div *ngIf="!userNew">
+                Login
+            </div>
+          </a>
         </small>
       </li>
       <li class="nav-item  float-left navbar-text  ml-4 d-flex align-items-center ">

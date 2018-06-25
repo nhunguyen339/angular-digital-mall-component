@@ -6,9 +6,12 @@ import { of } from 'rxjs/observable/of';
 import { Genre } from './genre';
 
 import "rxjs/add/operator/map";
-let count = 0;
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-type' : 'application/json' })
+}
 
 @Injectable()
+
 export class BookService {
   booksUrl = "https://green-web-bookstore.herokuapp.com/api/books";
   private books : Observable<Book[]>;
@@ -33,6 +36,13 @@ export class BookService {
     }
     return this.http.get<Book[]>(`${this.booksUrl}/?title=${term}`)
   }
+
+  deleteBook( book : Genre ): Observable<Book> {
+    //const id = typeof genre === "string" ? genre : genre._id;
+   //const id:string;
+   const url = `${this.booksUrl}/${book._id}`;
+   return this.http.delete<Book>(url, httpOptions)
+ }
 
 //   public all(): Observable<Book[]> {
 //     return this.cachingServiceBase.cache<Book[]>(() => this.books,

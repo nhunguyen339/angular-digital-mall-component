@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from "./storage.service";
 import { observableToBeFn } from "rxjs/testing/TestScheduler";
 import { ShoppingCart } from './shopping-cart';
 import { Observable, Observer, } from 'rxjs';
@@ -21,18 +20,9 @@ export class ShoppingCartService implements OnInit {
   private deliveryOptions: DeliveryOptions[];
 
   public constructor (
-    private storageService : StorageService,
     private bookService: BookService
   ) {
-    this.storage = this.storageService.get();
-      this.subsciptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
-        this.subscribers.push(observer);
-        observer.next(this.retrieve());
-        return () => {
-          this.subscribers = this.subscribers.filter((obs) => obs !== observer );
-        };
-      }
-    )
+
   }
 
  ngOnInit() {

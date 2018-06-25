@@ -11,6 +11,9 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SearchComponent } from "./nav/search/search.component";
 import { AddGenreComponent } from "./add-genre/add-genre.component";
+import { AccountComponent } from "./account/account.component";
+import { AuthGuard } from "./models/login-logout/auth.gaurd";
+import { NewCustumerComponent } from "./login/new-custumer/new-custumer.component";
 
 const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -19,7 +22,7 @@ const routes : Routes = [
   // { path: 'books/category/:_id', component: CategoryFilterComponent },
 
   { path: 'detail/:_id', component: ProductDetailComponent },
-  { path: 'checkout', component: CheckoutComponent },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contact', component: ContactComponent },
@@ -28,6 +31,8 @@ const routes : Routes = [
   // { path: ':category/:subcategory', component: CategoryComponent },
   // { path: ':category/:_id', component: ProductDetailComponent },
   { path: 'add-genre', component: AddGenreComponent },
+  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'new-custumer', component: NewCustumerComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 

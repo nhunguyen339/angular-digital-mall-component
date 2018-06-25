@@ -22,6 +22,8 @@ export class Book {
   size: Size[];
   genre: Genre[];
 
+
+
   public updateFrom(src: Book):void {
     this._id = src._id;
     this.title = src.title;

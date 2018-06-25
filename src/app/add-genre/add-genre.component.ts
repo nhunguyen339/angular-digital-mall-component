@@ -11,8 +11,9 @@ import { Location } from '@angular/common'
 })
 export class AddGenreComponent implements OnInit {
   genres : Genre[] =[];
-  newGenre : Genre;
+  name:string;
   selectedGenre : Genre;
+
   constructor(
     private genreService : GenreService,
     private route: ActivatedRoute,
@@ -21,8 +22,8 @@ export class AddGenreComponent implements OnInit {
 
   ngOnInit() {
     this.getGenres();
-    this.newGenre = new Genre()
-    this.newGenre.name = '';
+    // this.newGenre = new Genre()
+    // this.newGenre.name = '';
   }
 
   getGenres():void {
@@ -31,15 +32,19 @@ export class AddGenreComponent implements OnInit {
   }
 
   add(): void {
-    this.genreService.addGenre(this.newGenre)
-      .subscribe( genre =>
-      {this.newGenre.name = '';
-      this.genres.push(genre)}
-    )
+    if ( this.name.length > 0 ) {
+      let newGenre = new Genre(this.name);
+      this.genreService.addGenre(newGenre)
+        .subscribe( genre =>
+        {
+        this.name ="";
+        this.genres.push(genre)}
+      )
+    }
   }
-  addDisable():boolean {
-    return this.newGenre.name.length == 0;
-  }
+  // addDisable():boolean {
+  //   return this.newGenre.name.length == 0;
+  // }
   delete(genre: Genre):void {
     this.genres = this.genres.filter( g => g !== genre );
     this.genreService.deleteGenre(genre).subscribe();

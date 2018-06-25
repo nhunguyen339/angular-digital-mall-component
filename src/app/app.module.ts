@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS }    from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -51,8 +51,12 @@ import { AddGenreComponent } from './add-genre/add-genre.component';
 
 import { DeliveryOptionsService } from './models/delivery-options.service';
 import { ShoppingCartService } from './models/shopping-cart.service';
-import { LocalStorageService, StorageService } from './models/storage.service';
 import { DeliveryOptions } from './models/delivery-options';
+import { AuthGuard } from './models/login-logout/auth.gaurd';
+import { AuthenticationService } from './models/login-logout/authentication.service';
+import { UserService } from './models/login-logout/user.service';
+import { JwtInterceptor } from './models/login-logout/jwt.interceptor';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   imports: [
@@ -61,6 +65,7 @@ import { DeliveryOptions } from './models/delivery-options';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
@@ -101,6 +106,7 @@ import { DeliveryOptions } from './models/delivery-options';
     PageNotFoundComponent,
     SearchComponent,
     AddGenreComponent,
+    AccountComponent,
 
   ],
   providers: [
@@ -109,13 +115,15 @@ import { DeliveryOptions } from './models/delivery-options';
     BannerService,
     DeliveryOptionsService,
     ShoppingCartService,
-    // LocalStorageService
-    { provide: StorageService, useClass: LocalStorageService },
+    AuthGuard,
+    AuthenticationService,
+    UserService,
     {
-      deps: [StorageService, BookService, DeliveryOptionsService],
-      provide: ShoppingCartService,
-      useClass: ShoppingCartService
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
     }
+    // LocalStorageService
 
   ],
   bootstrap: [AppComponent]

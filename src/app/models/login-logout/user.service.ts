@@ -3,6 +3,7 @@ import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Users } from './users';
 import { Observable } from 'rxjs';
+import { InfoSign } from './info-sign';
 
 const httpOption = {
   headers : new HttpHeaders({ 'Content-type' : 'application/json' })
@@ -22,5 +23,9 @@ export class UserService {
 
   createUser(user : User ): Observable<User> {
     return this.http.post<User>(this.usersUrl, user, httpOption )
+  }
+
+  getInfoSign(): Observable<InfoSign> {
+    return this.http.get<InfoSign>(this.usersUrl)
   }
 }

@@ -34,9 +34,6 @@ import { AuthenticationService } from '../../models/login-logout/authentication.
             password: ['', Validators.required]
         });
 
-        // reset login status
-        this.authenticationService.logout();
-
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/account';
     }
@@ -44,7 +41,7 @@ import { AuthenticationService } from '../../models/login-logout/authentication.
     // convenience getter for easy access to form fields
     get f() { return this.loginForm.controls; }
 
-    onSubmit() {
+    onSubmit():void {
         this.submitted = true;
 
         // stop here if form is invalid
@@ -58,10 +55,13 @@ import { AuthenticationService } from '../../models/login-logout/authentication.
             .subscribe(
                 data => {
                     this.router.navigate([this.returnUrl]);
+                    location.reload();
                 },
                 error => {
                     this.error = error;
                     this.loading = false;
-                });
+                },
+              );
     }
+
 }

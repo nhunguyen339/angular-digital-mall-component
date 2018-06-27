@@ -6,14 +6,15 @@ import { CategoryComponent } from './category/category.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CartComponent } from './cart/cart.component';
-import { LoginComponent } from './login/login.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SearchComponent } from "./nav/search/search.component";
 import { AddGenreComponent } from "./add-genre/add-genre.component";
-import { AccountComponent } from "./account/account.component";
 import { AuthGuard } from "./models/login-logout/auth.gaurd";
 import { NewCustumerComponent } from "./login/new-custumer/new-custumer.component";
+import { SuccessLoginComponent } from "./login/success-login/success-login.component";
+import { RegisteredCustumerComponent } from "./login/registered-custumer/registered-custumer.component";
+import { AccountComponent } from "./login/account/account.component";
 
 const routes : Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -24,7 +25,7 @@ const routes : Routes = [
   { path: 'detail/:_id', component: ProductDetailComponent },
   { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: CartComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'registered-custumer', component: RegisteredCustumerComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'search', component: SearchComponent },
   // { path: ':category/:subcategory/:_id', component: ProductDetailComponent },
@@ -33,6 +34,7 @@ const routes : Routes = [
   { path: 'add-genre', component: AddGenreComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   { path: 'new-custumer', component: NewCustumerComponent },
+  { path: 'success-login', component: SuccessLoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 

@@ -51,7 +51,7 @@ export class NavComponent implements OnInit {
   }
   getUser():void {
     this.userService.getAll().pipe(first()).subscribe(_ => this.userNew = _.user )
-  }
+  };
 
   getGenres():void {
     this.genreService.getGenres()

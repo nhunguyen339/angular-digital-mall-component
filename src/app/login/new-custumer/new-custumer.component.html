@@ -3,47 +3,46 @@
   <div class="row justify-content-center ins-customer-login">
     <div class="col-6">
       <div class="wrapper-sign">
-        <h4 class=" ins-bg-second text-white p-2 mb-3">Registered Custumer</h4>
-        <form [formGroup]="userForm" #formDir="ngForm" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" formControlName="email" class="form-control"
-            />
-            <div *ngIf="getEmail.invalid && (getEmail.dirty || getEmail.touched)" class="invalid-feedback">
-              <div *ngIf="getEmail.errors['required']">Username is required</div>
+        <h4 class=" ins-bg-second text-white p-2 mb-3">New Member</h4>
+        <form [formGroup]="userForm" #newMember="ngForm" (ngSubmit)="onSubmit()">
+          <div [hidden]="newMember.submitted && userForm.valid && !error">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && newUserControl.email.errors }"/>
+              <div *ngIf="submitted && newUserControl.email.errors" class="invalid-feedback">
+                <div *ngIf="newUserControl.email.errors['required']">Username is required</div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" formControlName="password" class="form-control"
-            />
-            <div *ngIf="getPassword.invalid && ( getPassword.dirty || getPassword.touched )" class="invalid-feedback">
-              <div *ngIf="getPassword.errors['required']">Password is required</div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && newUserControl.email.errors }"/>
+              <div *ngIf="submitted && newUserControl.password.errors" class="invalid-feedback" >
+                <div *ngIf="newUserControl.password.errors['required']">Password is required</div>
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="password">Last Name</label>
-            <input type="text" formControlName="last" class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">First Name</label>
-            <input type="text" formControlName="first" class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Phone</label>
-            <input type="phone" formControlName="phone" placeholder="" class="form-control"
-            />
-          </div>
-          <div class="form-group">
-            <button type="submit" [disabled]="loading" class="btn btn-primary">Login</button>
-            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
-            />
+            <div class="form-group">
+              <label for="password">Last Name</label>
+              <input type="text" formControlName="last" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">First Name</label>
+              <input type="text" formControlName="first" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="password">Phone</label>
+              <input type="phone" formControlName="phone" placeholder="" class="form-control" />
+            </div>
+            <div class="form-group">
+              <button type="submit" (click)="getInfoSign()" class="btn btn-primary">Login</button>
+              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+              />
+            </div>
           </div>
         </form>
         <div>
-          <a routerLink="/login" class="ins-a-brand">Là thành viên? Đăng Nhập tại đây.</a>
+          <h2 *ngIf="newMember.submitted && userForm.valid && !error">Successfull Sign in</h2>
+          <p *ngIf="error">{{error}}</p>
+          <a routerLink="/registered-custumer" class="ins-a-brand">Là thành viên? Đăng Nhập tại đây.</a>
         </div>
       </div>
     </div>

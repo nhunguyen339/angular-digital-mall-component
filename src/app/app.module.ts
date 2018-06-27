@@ -36,7 +36,6 @@ import { PersonalInformationComponent } from './checkout/checkout-product/person
 import { AddressesComponent } from './checkout/checkout-product/addresses/addresses.component';
 import { ShippingMethodsComponent } from './checkout/checkout-product/shipping-methods/shipping-methods.component';
 import { PaymentReviewComponent } from './checkout/checkout-product/payment-review/payment-review.component';
-import { LoginComponent } from './login/login.component';
 import { NewCustumerComponent } from './login/new-custumer/new-custumer.component';
 import { RegisteredCustumerComponent } from './login/registered-custumer/registered-custumer.component';
 import { ContactComponent } from './contact/contact.component';
@@ -56,7 +55,8 @@ import { AuthGuard } from './models/login-logout/auth.gaurd';
 import { AuthenticationService } from './models/login-logout/authentication.service';
 import { UserService } from './models/login-logout/user.service';
 import { JwtInterceptor } from './models/login-logout/jwt.interceptor';
-import { AccountComponent } from './account/account.component';
+import { SuccessLoginComponent } from './login/success-login/success-login.component';
+import { AccountComponent } from './login/account/account.component';
 
 @NgModule({
   imports: [
@@ -98,7 +98,6 @@ import { AccountComponent } from './account/account.component';
     AddressesComponent,
     ShippingMethodsComponent,
     PaymentReviewComponent,
-    LoginComponent,
     NewCustumerComponent,
     RegisteredCustumerComponent,
     ContactComponent,
@@ -107,6 +106,7 @@ import { AccountComponent } from './account/account.component';
     SearchComponent,
     AddGenreComponent,
     AccountComponent,
+    SuccessLoginComponent,
 
   ],
   providers: [

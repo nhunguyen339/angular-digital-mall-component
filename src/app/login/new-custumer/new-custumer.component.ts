@@ -81,7 +81,7 @@ export class NewCustumerComponent implements OnInit {
     .pipe(first())
       .subscribe(
         error => {
-          this.error = error;
+          // this.error = error;
           this.loading = false;
       });
   }

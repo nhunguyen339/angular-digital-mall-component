@@ -6,7 +6,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 30px;
+  font-size: 40px;
   top: 0px;
 }
 .dropdown-menu {
@@ -16,5 +16,21 @@
 .ins-nav-category {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+.navbar-toggler-icon {
+  color:  rgb(172, 147, 108);
+}
+.uk-dropdown {
+  width: 300px;
+}
+.ins-wapper-img-cart img {
+  width: 100%;
+}
+.ins-wapper-cart {
+  font-size: 14px;
+  height: 0px;
+}
+.ins-logo-offcanvas {
+  font-size: 40px;
 }
 

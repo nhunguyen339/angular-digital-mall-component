@@ -1,4 +1,4 @@
-<div class="input-group">
+<!-- <div class="input-group">
     <input type="search" id="inputSearchHeader" class="input-group-text form-control ins-input-search" placeholder="go search"
       aria-label="Username" aria-describedby="basic-addon1" #searchBox id="search-box" (keyup)="search(searchBox.value)" >
       <ul class="ins-search-result">
@@ -9,6 +9,18 @@
         </li>
       </ul>
     <div class="input-group-append">
-      <button type="submit" class="btn border-white text-white  form-control" aria-describedby="inputSearchHeader" >Search</button>
+      <button type="submit" class="btn form-control" aria-describedby="inputSearchHeader" >Search</button>
     </div>
+</div> -->
+<div class="uk-navbar-right">
+
+  <div>
+      <a class="uk-navbar-toggle" uk-search-icon href="#"></a>
+      <div class="uk-drop" uk-drop="mode: click; pos: left-center; offset: 0">
+          <form class="uk-search uk-search-navbar">
+              <input class="uk-search-input" type="search" placeholder="Search..." autofocus>
+          </form>
+      </div>
+  </div>
+
 </div>

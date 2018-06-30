@@ -1,77 +1,92 @@
-  <!-- navigation -->
-  <div class="container ins-nav-top">
-    <ul class="list-unstyled mb-0 float-left position-relative">
-      <li class="nav-item  float-left navbar-text border-right pr-4 d-flex align-items-center  ">
-        <a href="" class="pl-1 my-0 ins-a-brand">
-          <i class="material-icons pr-1">email</i>
-        </a>
-        <small>
-          <a href="" class="nav-link ins-a-brand px-0 my-0"> bookmall@gmail.com</a>
-        </small>
-      </li>
-      <li class="nav-item  float-left navbar-text pl-4 d-flex align-items-center  ">
-        <a href="" class="pl-1 my-0 ins-a-brand">
-          <i class="material-icons pr-1">phone</i>
-        </a>
-        <small>
-          <a href="" class="nav-link ins-a-brand px-0 my-0"> 0989373513</a>
-        </small>
-      </li>
-    </ul>
-    <ul class="list-unstyled mb-0 float-right position-relative">
-      <li class="nav-item  float-left navbar-text border-right pr-4 d-flex align-items-center  ">
-        <a routerLink="/account" class="pr-1 py-0 ins-a-brand">
-          <i class="material-icons">account_circle</i>
-        </a>
-        <small>
-          <a routerLink="/account" class="nav-link ins-a-brand px-0 my-0">
-            <div *ngIf="userNew">
-                {{userNew.last}} {{userNew.first}}
-            </div>
-            <div *ngIf="!userNew">
-                Login
-            </div>
-          </a>
-        </small>
-      </li>
-      <li class="nav-item  float-left navbar-text  ml-4 d-flex align-items-center ">
-        <small>
-          <a routerLink="/cart" class="nav-link ins-a-brand px-0 my-0">Cart {{itemCount}} </a>
-        </small>
-        <a routerLink="/cart" class="pl-1 my-0 ins-a-brand">
-          <i class="material-icons">shopping_cart</i>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <nav class="navbar w-100 navbar-expand-lg navbar-dark ins-bg-brand ins-nav-main mb-3 ">
-    <div class="container">
-      <div class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-white border p-2" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
-        <div class="dropdown-menu p-4">
-            <a *ngFor="let genre of genres" class="dropdown-item px-0 ins-a-brand" routerLink="/category">{{genre.name}}</a>
-        </div>
-      </div>
-      <a class="navbar-brand display-4" routerLink="/homepage">
-        <b>Book</b> mall</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse ins-nav-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a routerLink="/add-genre" class="text-white">Add genre</a>
-          </li>
-          <li class="nav-item">
-            <app-search></app-search>
+
+
+<nav class="navbar w-100 navbar-expand-lg navbar-light bg-lights ins-nav-main mb-3 ">
+  <div class="uk-offcanvas-content">
+    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
+    <div id="offcanvas-slide" uk-offcanvas="overlay: false">
+      <div class="uk-offcanvas-bar">
+        <a routerLink="/homepage" class="text-white ins-logo-offcanvas"><b>Book</b> mall</a>
+        <ul class="list-unstyled">
+          <li *ngFor="let genre of genres">
+            <a routerLink="/category" class="px-0 ins-a-brand">{{genre.name}}</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </div>
+  <a class="navbar-brand ins-a-brand display-4 text-dark" routerLink="/homepage">
+    <b>Book</b> mall
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse ins-nav-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item mr-3">
+        <app-search></app-search>
+      </li>
+      <li class="nav-item mr-3 float-left navbar-text d-flex align-items-center ">
+        <div class="uk-inline">
+          <div class="d-flex">
+            <a routerLink="/account" class="pr-1 py-0 ins-a-brand">
+              <i class="material-icons">account_circle</i>
+            </a>
+            <small>
+              <a routerLink="/account" class="nav-link ins-a-brand px-0 my-0">
+                <div *ngIf="userNew">
+                  {{userNew.last}} {{userNew.first}}
+                </div>
+                <div *ngIf="!userNew">
+                  Login
+                </div>
+              </a>
+            </small>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item mr-3 float-left navbar-text d-flex align-items-center ">
+        <div class="uk-inline">
+          <div class="d-flex">
+            <a routerLink="/cart" class="pl-1 my-0 ins-a-brand">
+              <i class="material-icons">shopping_cart</i>
+            </a>
+            <small>
+              <a routerLink="/cart" class="nav-link ins-a-brand px-0 my-0">Cart {{itemCount}} </a>
+            </small>
+          </div>
+          <div class="uk-dropdown" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
+            <ul class="list-unstyled ins-wapper-cart">
+              <li *ngFor="let book of books" class=" float-left mb-4">
+                <div class="row">
+                  <div class="col-3">
+                    <a href="">
+                      <img src="{{book.images.main}}" alt="">
+                    </a>
+                  </div>
+                  <div class="col-9">
+                    <b>{{book.sellingPrice}}</b>
+                    <br>
+                    <a href="">{{book.title}}</a>
+                  </div>
+                </div>
+              </li>
+              <li class="float-right">
+                <a routerLink="/checkout"><button class="btn ins-btn-outline-brand" type="button">Checkout</button></a>
+                <a routerLink="/cart"><button class="btn ins-btn-outline-brand" type="button">View cart</button></a>
+              </li>
+            </ul>
 
-  <!-- navigation-end -->
+
+          </div>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</nav>
 
 
-  <!-- <a *ngFor="let genre of genres" class="dropdown-item ins-a-brand" routerLink="/category">{{genre.name}}</a> -->
+<!-- <li class="nav-item">
+          <a routerLink="/add-genre">Add genre</a>
+        </li> -->

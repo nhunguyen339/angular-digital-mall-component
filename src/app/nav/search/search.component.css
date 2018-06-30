@@ -1,5 +1,5 @@
 button {
-  background: transparent;
+  border : 1px solid rgb(0, 171, 169);
 }
 
 @media (max-width: 991px) {
@@ -10,7 +10,19 @@ button {
 .ins-search-result {
   position: absolute;
   z-index: 10;
-  background: white;
+  /* background: white; */
   right: 0;
   top: 54px;
 }
+input {
+  width: 200px;
+  float: right;
+}
+.uk-navbar-toggle {
+  height: 50px;
+  padding: 0;
+}
+::-moz-placeholder {
+  font-size: 14px;
+}
+

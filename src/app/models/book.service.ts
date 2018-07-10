@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable()
 
 export class BookService {
-  booksUrl = "https://green-web-bookstore.herokuapp.com/api/books";
+  booksUrl = "https://green-web-bookshop.herokuapp.com/api/books";
   private books : Observable<Book[]>;
 
   constructor (
@@ -34,7 +34,7 @@ export class BookService {
     if (!term.trim()) {
       return of ([]);
     }
-    return this.http.get<Book[]>(`${this.booksUrl}/?title=${term}`)
+    return this.http.get<Book[]>(`${this.booksUrl}/search/${term}`)
   }
 
   deleteBook( book : Genre ): Observable<Book> {

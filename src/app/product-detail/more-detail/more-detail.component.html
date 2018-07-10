@@ -26,8 +26,8 @@
         <option value="" class="active">Pink</option>
       </select> -->
       <div class="ins-detail-add-to-cart mt-3  d-flex ">
-        <input class=" btn p-2 ins-btn-outline-brand" type="number" name="" value="1" min="1">
-        <button type="button" class="btn ins-btn-outline-brand ml-4">Add to cart</button>
+        <input class=" btn p-2 ins-btn-outline-brand" type="number" name="" value="1" [(ngModel)]="inputQuantity" min="1">
+        <button type="button" (click)="addItem(book)" class="btn ins-btn-outline-brand ml-4">Add to cart</button>
         <span class="ml-4 d-flex align-items-center">
             <i class="material-icons ins-text-second">check</i> <b>In stock</b>
         </span>

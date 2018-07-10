@@ -3,7 +3,7 @@ import { User } from './user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Users } from './users';
 import { Observable } from 'rxjs';
-import { InfoSign } from './info-sign';
+import { map } from 'rxjs/operator/map';
 
 const httpOption = {
   headers : new HttpHeaders({ 'Content-type' : 'application/json' })
@@ -22,10 +22,8 @@ export class UserService {
   // tự động tạo thêm cái element khác trong Users
 
   createUser(user : User ): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user, httpOption )
+    return this.http.post<User>(this.usersUrl, user, httpOption ).pipe()
   }
 
-  getInfoSign(): Observable<InfoSign> {
-    return this.http.get<InfoSign>(this.usersUrl)
-  }
+ 
 }

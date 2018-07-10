@@ -4,7 +4,7 @@ import { User } from '../../models/login-logout/user';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { InfoSign } from '../../models/login-logout/info-sign';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-custumer',
@@ -16,19 +16,17 @@ export class NewCustumerComponent implements OnInit {
   newUser : User;
   userForm : FormGroup;
   loading = false;
-  error: string;
-  infoSign : InfoSign;
+  error 
+  // infoSign : InfoSign;
 
   constructor(
     private formBuilder : FormBuilder,
     private userService : UserService,
-    private router : Router
+    private router : Router,
   ) { }
 
   ngOnInit() {
-    // this.infoSign = new InfoSign()
-    // this.infoSign.error = '';
-    // this.infoSign.success = false
+
 
 
     this.newUser = new User();
@@ -70,27 +68,15 @@ export class NewCustumerComponent implements OnInit {
     this.newUser.last = this.userForm.value.last;
     this.newUser.first = this.userForm.value.first;
     this.newUser.phone = this.userForm.value.phone;
-    this.createUser();
 
   }
 
 
-  createUser():void {
-    // this.loading = true;
-    this.userService.createUser(this.newUser)
-    .pipe(first())
-      .subscribe(
-        error => {
-          // this.error = error;
-          this.loading = false;
-      });
-  }
+  
   successLogin(): void {
     this.router.navigate(['/success-login'])
   }
 
-  getInfoSign():void {
 
-  }
 
 }

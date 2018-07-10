@@ -10,9 +10,8 @@ import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SearchComponent } from "./nav/search/search.component";
 import { AddGenreComponent } from "./add-genre/add-genre.component";
-import { AuthGuard } from "./models/login-logout/auth.gaurd";
+import { AuthGuard } from "./models/login-logout/auth.guard";
 import { NewCustumerComponent } from "./login/new-custumer/new-custumer.component";
-import { SuccessLoginComponent } from "./login/success-login/success-login.component";
 import { RegisteredCustumerComponent } from "./login/registered-custumer/registered-custumer.component";
 import { AccountComponent } from "./login/account/account.component";
 
@@ -34,7 +33,6 @@ const routes : Routes = [
   { path: 'add-genre', component: AddGenreComponent },
   { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
   { path: 'new-custumer', component: NewCustumerComponent },
-  { path: 'success-login', component: SuccessLoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 

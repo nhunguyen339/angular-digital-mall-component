@@ -11,6 +11,7 @@ import { BookService } from '../../models/book.service';
 })
 export class SearchComponent implements OnInit {
   books$ : Observable<Book[]>;
+  queryString: string;
   private searchTerms = new Subject<string>();
 
   constructor(

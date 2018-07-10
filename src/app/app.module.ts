@@ -48,15 +48,14 @@ import { BannerService } from './models/banner.service';
 import { SearchComponent } from './nav/search/search.component';
 import { AddGenreComponent } from './add-genre/add-genre.component';
 
-import { DeliveryOptionsService } from './models/delivery-options.service';
-import { ShoppingCartService } from './models/shopping-cart.service';
-import { DeliveryOptions } from './models/delivery-options';
-import { AuthGuard } from './models/login-logout/auth.gaurd';
+import { AuthGuard } from './models/login-logout/auth.guard';
 import { AuthenticationService } from './models/login-logout/authentication.service';
 import { UserService } from './models/login-logout/user.service';
 import { JwtInterceptor } from './models/login-logout/jwt.interceptor';
-import { SuccessLoginComponent } from './login/success-login/success-login.component';
 import { AccountComponent } from './login/account/account.component';
+import { LoginStatusService } from './models/login-logout/login-status.service';
+import { AppCustomModule } from './app-custom/app-custom.module';
+import { ShoppingCartService } from './models/cart/shopping-cart.service';
 
 @NgModule({
   imports: [
@@ -65,7 +64,8 @@ import { AccountComponent } from './login/account/account.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppCustomModule
   ],
   declarations: [
     AppComponent,
@@ -106,18 +106,16 @@ import { AccountComponent } from './login/account/account.component';
     SearchComponent,
     AddGenreComponent,
     AccountComponent,
-    SuccessLoginComponent,
-
   ],
   providers: [
     BookService,
     GenreService,
     BannerService,
-    DeliveryOptionsService,
-    ShoppingCartService,
     AuthGuard,
     AuthenticationService,
     UserService,
+    LoginStatusService,
+    ShoppingCartService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

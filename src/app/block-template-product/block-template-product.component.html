@@ -20,8 +20,11 @@
           <br>
           <button type="button"
                   class="btn ins-btn-outline-brand mt-2"
-                  (click)="addProductToCart(book, 1)"
+                  (click)="addItem(book, 1)"
                   >Add to cart</button>
+                  <button type="button" (click)="removeItem(book)">remove</button>
+
+                 
         </div>
     </div>
   </div>

@@ -10,6 +10,8 @@ import { UserService } from '../models/login-logout/user.service';
 import { User } from '../models/login-logout/user';
 import { LoginStatusService } from '../models/login-logout/login-status.service';
 import { ShoppingCart } from '../models/cart/shopping-cart';
+import { ShoppingCartService } from '../models/cart/shopping-cart.service';
+import { CartItem } from '../models/cart/cart-item';
 
 @Component({
   selector: 'app-nav',
@@ -21,6 +23,9 @@ export class NavComponent implements OnInit {
   genres: Genre[];
   banners: Banner[];
   status: Boolean;
+  items: CartItem[];
+  shoppingCart: ShoppingCart;
+
 
   public cart: Observable<ShoppingCart>;
   public books: Book[];
@@ -31,6 +36,7 @@ export class NavComponent implements OnInit {
     private bannerService: BannerService,
     private userService: UserService,
     private loginStatusService: LoginStatusService,
+    private shoppingCartService: ShoppingCartService,
   ) {
     loginStatusService.status$.subscribe(
       status => {
@@ -40,20 +46,21 @@ export class NavComponent implements OnInit {
         this.getUser();
       }
     );
-    
+    shoppingCartService.totalStatus$.subscribe(
+      status => {
+        this.shoppingCart = JSON.parse(this.getStorage());
+        console.log(this.shoppingCart.total)
+      }
+    )
   }
 
-  public ngOnInit(): void {
+  ngOnInit(): void {
     this.getGenres();
     this.getBanners();
-    
-    // this.cart = this.shoppingCartService.get();
-    // this.cartSubscription = this.cart.subscribe((cart) => {
-    //   this.itemCount = cart.items.map((x) => x.quantity ).reduce((p, n) => p + n, 0);
-    // } );
-
-
+    this.shoppingCartService.initCart();
+    this.shoppingCart = JSON.parse(this.getStorage());
   }
+
   getUser(): void {
     this.userService.getAll().pipe(first()).subscribe(_ => this.userNew = _.user)
   };
@@ -66,6 +73,9 @@ export class NavComponent implements OnInit {
   getBanners(): void {
     this.bannerService.getBanners()
       .subscribe(banners => this.banners = banners.slice(1, 2));
+  }
+  getStorage() {
+    return localStorage.getItem('shoppingCart')
   }
   // ===============
 

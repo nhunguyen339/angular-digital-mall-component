@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookService } from '../models/book.service'
-import { Observable } from "rxjs/Observable";
-import { Observer } from "rxjs/Observer";
 import { CartItem } from '../models/cart/cart-item';
 import { ShoppingCart } from '../models/cart/shopping-cart';
 import { ShoppingCartService } from '../models/cart/shopping-cart.service';
-
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
+import { ParamMap, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-block-template-product',
   templateUrl: './block-template-product.component.html',
@@ -15,10 +15,13 @@ import { ShoppingCartService } from '../models/cart/shopping-cart.service';
 export class BlockTemplateProductComponent implements OnInit {
   books: Book[] = [];
   book: Book[];
+  private selectedId: number;
+  books$: Observable<Book[]>;
   currentItem = new CartItem();
   shoppingCart: ShoppingCart;
 
   constructor(
+    private route: ActivatedRoute,
     private bookService: BookService,
     private shoppingCartService: ShoppingCartService,
   ) { }
@@ -26,41 +29,32 @@ export class BlockTemplateProductComponent implements OnInit {
   ngOnInit() {
     this.getBooks();
     this.shoppingCartService.initCart();
-    // this.initCart();
-    // this.getGenres();
+    this.shoppingCart = JSON.parse(this.shoppingCartService.getStorage());
   }
-  
+
 
   getBooks(): void {
-    this.bookService.getBooks()
-      .subscribe(books => this.books = books);
+    this.books$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        this.selectedId = +params.get('_id');
+        return this.bookService.getBooks();
+      })
+    )
   }
+  // getBooks(): void {
+  //   this.bookService.getBooks()
+  //     .subscribe(books => this.books = books);
+  // }
 
   // =================shoppping cart ===================
 
-  addItem(book: Book,quantity:number ) {
+  addItem(book: Book, quantity: number) {
     this.shoppingCartService.addItem(book, quantity);
     this.shoppingCartService.calculateTotal();
+    this.shoppingCartService.calculateCounted();
   }
-  removeItem(book: Book) {
-    this.shoppingCartService.removeItem(book);
-  }
- 
-  // initCart() {
-  //   if (this.getStorage()) {
-  //     this.shoppingCart = JSON.parse(this.getStorage());
-  //     console.log("get local cart")
-  //   }
-  //   else {
-  //     this.shoppingCart = new ShoppingCart();
-  //     this.setStorage(this.shoppingCart);
-  //     console.log(";tao moi cart")
-  //   }
 
-  // }
-  // getStorage() {
-  //   return localStorage.getItem('shoppingCart');
-  // }
+
 
   // setStorage(shoppingCart: ShoppingCart) {
   //   return localStorage.setItem('shoppingCart', JSON.stringify(this.shoppingCart))
@@ -107,7 +101,7 @@ export class BlockTemplateProductComponent implements OnInit {
   //   this.setStorage(this.shoppingCart)
   //   console.log(JSON.parse(this.getStorage()).total);
   // }
-  
+
 
 
 }

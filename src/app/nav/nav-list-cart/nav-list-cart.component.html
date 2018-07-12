@@ -1,0 +1,20 @@
+<ul class="list-unstyled ins-wapper-cart">
+    <li *ngFor="let item of shoppingCart.items" class=" float-left mb-4">
+      <div class="row">
+        <div class="col-3">
+          <a routerLink="/detail/{{item.productId}}">
+            <img src="{{item.image}}" alt="">
+          </a>
+        </div>
+        <div class="col-9">
+          <b>{{item.sellingPrice}}</b>
+          <br>
+          <a class="ins-a-brand" routerLink="/detail/{{item.productId}}">{{item.title}}</a>
+        </div>
+      </div>
+    </li>
+    <li class="float-right">
+      <a routerLink="/checkout"><button class="btn ins-btn-outline-brand" type="button">Checkout</button></a>
+      <a routerLink="/cart"><button class="btn ins-btn-outline-brand" type="button">View cart</button></a>
+    </li>
+  </ul> 

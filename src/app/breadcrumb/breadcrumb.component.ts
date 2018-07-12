@@ -21,14 +21,14 @@ export class BreadcrumbComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getBook();
+    // this.getBook();
   }
 
-  getBook():void {
-    let id :string;
-    id = this.route.snapshot.paramMap.get('_id')
-    this.bookService.getBook(id)
-      .subscribe( book => this.book = book );
-  }
+  // getBook():void {
+  //   let id :string;
+  //   id = this.route.snapshot.paramMap.get('_id')
+  //   this.bookService.getBook(id)
+  //     .subscribe( book => this.book = book );
+  // }
 
 }

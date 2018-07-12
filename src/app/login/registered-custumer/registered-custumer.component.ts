@@ -55,7 +55,7 @@ import { LoginStatusService } from '../../models/login-logout/login-status.servi
         }
         this.loading = true;
         this.authenticationService.login(this.f.username.value, this.f.password.value)
-            .pipe(first())
+            .pipe(first()) 
             .subscribe(
                 data => {
                     this.loginStatusService.setStatus(true);

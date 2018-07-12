@@ -1,12 +1,11 @@
-
-
 <nav class="navbar w-100 navbar-expand-lg navbar-light bg-lights ins-nav-main mb-3 ">
   <div class="uk-offcanvas-content">
     <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
     <div id="offcanvas-slide" uk-offcanvas="overlay: false">
       <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
-        <a routerLink="/homepage" class="text-white ins-logo-offcanvas"><b>Book</b> mall</a>
+        <a routerLink="/homepage" class="text-white ins-logo-offcanvas">
+          <b>Book</b> mall</a>
         <ul class="list-unstyled">
           <li *ngFor="let genre of genres">
             <a routerLink="/category" class="px-0 ins-a-brand">{{genre.name}}</a>
@@ -50,32 +49,11 @@
               <i class="material-icons">shopping_cart</i>
             </a>
             <small>
-              <a routerLink="/cart" class="nav-link ins-a-brand px-0 my-0">Cart {{itemCount}} </a>
+              <a routerLink="/cart" class="nav-link ins-a-brand px-0 my-0">Cart({{shoppingCart.items_counted}})</a>
             </small>
           </div>
           <div class="uk-dropdown" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
-            <ul class="list-unstyled ins-wapper-cart">
-              <li *ngFor="let book of books" class=" float-left mb-4">
-                <div class="row">
-                  <div class="col-3">
-                    <a href="">
-                      <img src="{{book.images.main}}" alt="">
-                    </a>
-                  </div>
-                  <div class="col-9">
-                    <b>{{book.sellingPrice}}</b>
-                    <br>
-                    <a href="">{{book.title}}</a>
-                  </div>
-                </div>
-              </li>
-              <li class="float-right">
-                <a routerLink="/checkout"><button class="btn ins-btn-outline-brand" type="button">Checkout</button></a>
-                <a routerLink="/cart"><button class="btn ins-btn-outline-brand" type="button">View cart</button></a>
-              </li>
-            </ul>
-
-
+            <app-nav-list-cart></app-nav-list-cart>
           </div>
         </div>
       </li>

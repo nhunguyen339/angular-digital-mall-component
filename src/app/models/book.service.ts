@@ -6,6 +6,7 @@ import { of } from 'rxjs/observable/of';
 import { Genre } from './genre';
 
 import "rxjs/add/operator/map";
+import { map } from 'rxjs/operators';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-type' : 'application/json' })
 }
@@ -26,9 +27,14 @@ export class BookService {
   }
 
   getBook(id:string): Observable<Book> {
-    const url = `${this.booksUrl}/${id}`;
-    return this.http.get<Book>(url);
+    return this.getBooks().pipe(
+      map(books => books.find(book => book._id === id))
+    );
   }
+  // getBook(id:string): Observable<Book> {
+  //   const url = `${this.booksUrl}/${id}`;
+  //   return this.http.get<Book>(url);
+  // }
 
   searchBooks(term:string):Observable<Book[]> {
     if (!term.trim()) {

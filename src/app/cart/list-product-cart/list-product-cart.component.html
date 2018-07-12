@@ -1,15 +1,15 @@
 <h4 class=" ins-bg-second text-white p-2 mb-0">Shopping cart</h4>
 <div class="py-4">
     <ul class="list-unstyled">
-        <li class="border-bottom mb-4" *ngFor="let item of items">
+        <li class="border-bottom mb-4" *ngFor="let item of shoppingCart.items">
             <div class="row">
-                <div class="col-md-3">
-                    <a routerLink="/product-detail">
+                <div class="col-md-3"> 
+                    <a routerLink="/detail/{{item.productId}}">
                         <img src="{{item.image}}" class="w-100 ins-box-shadow mb-4" alt="">
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a class="ins-a-brand" routerLink="/product-detail">{{item.title}}</a>
+                    <a class="ins-a-brand" routerLink="/detail/{{item.productId}}">{{item.title}}</a>
                     <br>
                     <b>{{item.sellingPrice}} </b>
                     <small class="text-muted">
@@ -20,10 +20,10 @@
                 <div class="col-md-5 d-flex justify-content-between">
                     <div class=" mb-4">
                         <label class="d-block " for="number-of-product">Quantity:</label>
-                        <input class="ins-input-quantity-color" type="number" name="" value="{{item.quantity}}" min="1">
+                        <input class="ins-input-quantity-color" type="number" name="" [(ngModel)]="item.quantity" (change)="updateCart()" min="0">
                     </div>
                     <div>
-                        <p>Total Item:</p>
+                        <p>Total'item:</p>
                         <h5>{{item.quantity*item.sellingPrice}}</h5>
                     </div>
                     <div>

@@ -13,16 +13,16 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class NewCustumerComponent implements OnInit {
   submitted = false;
-  newUser : User;
-  userForm : FormGroup;
+  newUser: User;
+  userForm: FormGroup;
   loading = false;
-  error 
+  error
   // infoSign : InfoSign;
 
   constructor(
-    private formBuilder : FormBuilder,
-    private userService : UserService,
-    private router : Router,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -47,12 +47,12 @@ export class NewCustumerComponent implements OnInit {
 
     this.userForm = this.formBuilder.group(
       {
-        email : [this.newUser.email, Validators.required],
-        password : [this.newUser.password, Validators.required],
-        last : [this.newUser.last],
-        first : [this.newUser.first],
+        email: [this.newUser.email, Validators.required],
+        password: [this.newUser.password, Validators.required],
+        last: [this.newUser.last],
+        first: [this.newUser.first],
 
-        phone : [this.newUser.phone]
+        phone: [this.newUser.phone]
       }
     )
 
@@ -60,22 +60,33 @@ export class NewCustumerComponent implements OnInit {
 
   get newUserControl() { return this.userForm.controls }
 
-  onSubmit():void {
+  onSubmit(): void {
     // thay cho ngModel
+    // this.loading = true;
     this.submitted = true;
     this.newUser.email = this.userForm.value.email;
     this.newUser.password = this.userForm.value.password;
     this.newUser.last = this.userForm.value.last;
     this.newUser.first = this.userForm.value.first;
     this.newUser.phone = this.userForm.value.phone;
-
+    this.userService.createUser(this.newUser).subscribe(
+      data => {
+       
+    },
+    error => {
+        this.error = error;
+        this.loading = false;
+    },
+    )
   }
 
 
-  
+
   successLogin(): void {
     this.router.navigate(['/success-login'])
   }
+
+  
 
 
 

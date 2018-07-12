@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCart} from '../../models/cart/shopping-cart';
+import { ShoppingCart } from '../../models/cart/shopping-cart';
 import { CartItem } from '../../models/cart/cart-item';
 import { Book } from '../../models/book';
 import { ShoppingCartService } from '../../models/cart/shopping-cart.service';
@@ -12,34 +12,45 @@ import { BookService } from '../../models/book.service';
 })
 export class ListProductCartComponent implements OnInit {
   shoppingCart: ShoppingCart;
-  // cartItems: CartItem[] = [];
   books: Book[] = [];
   booksInCart: Book[];
-items: CartItem[]
+  // items: CartItem[];
+  anounce: Boolean;
+
   constructor(
     private shoppingCartService: ShoppingCartService,
     private bookService: BookService,
-  ) { }
+  ) {
+    shoppingCartService.totalStatus$.subscribe(
+      status => {
+        this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'));
+      }
+    )
+  }
 
   ngOnInit() {
     this.shoppingCartService.initCart();
-    this.shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
-    this.getBooks();
-   this.items = this.shoppingCart.items
-    // this.getBook_cart();
+    this.shoppingCart = JSON.parse(this.shoppingCartService.getStorage());
   }
 
-  removeItem(book: Book) {
-    this.shoppingCartService.removeItem(book);
+  removeItem(cartItem: CartItem) {
+    this.shoppingCartService.removeItem(cartItem);
+    this.shoppingCartService.calculateTotal();
+    this.shoppingCartService.calculateCounted();
+    this.shoppingCartService.setStorage();
   }
 
   getBooks(): void {
     this.bookService.getBooks().subscribe(
       books => {
         this.books = books;
-      }
-      
+      } 
     )
+  }
+  updateCart() {
+    this.shoppingCartService.updateCart(this.shoppingCart);
+    this.shoppingCartService.setStorage();
+    console.log('update');
   }
 
   // cartItems : CartItem = JSON.parse(localStorage.getItem('shoppingCart')).items;

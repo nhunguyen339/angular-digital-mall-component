@@ -23,6 +23,7 @@ export class NavComponent implements OnInit {
   genres: Genre[];
   banners: Banner[];
   status: Boolean;
+  statusUser: Boolean = false;
   items: CartItem[];
   shoppingCart: ShoppingCart;
 
@@ -41,9 +42,11 @@ export class NavComponent implements OnInit {
     loginStatusService.status$.subscribe(
       status => {
         this.status = status;
+        if (status) {
+          this.getUser();
+        }
         this.userNew = JSON.parse(localStorage.getItem('currentUser'));
-        console.log(this.userNew);
-        this.getUser();
+        console.log(this.status);
       }
     );
     shoppingCartService.totalStatus$.subscribe(
@@ -55,6 +58,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+     this.checkToken();
     this.getGenres();
     this.getBanners();
     this.shoppingCartService.initCart();
@@ -76,6 +80,16 @@ export class NavComponent implements OnInit {
   }
   getStorage() {
     return localStorage.getItem('shoppingCart')
+  }
+  checkToken() {
+    if ( localStorage.getItem('currentUser')) {
+      this.statusUser = true;
+      this.loginStatusService.setStatus(this.statusUser);
+      this.getUser();
+    } else {
+      this.loginStatusService.setStatus(this.statusUser);
+    }
+    console.log('check')
   }
   // ===============
 

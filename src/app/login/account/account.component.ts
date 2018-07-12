@@ -12,12 +12,23 @@ import { LoginStatusService } from '../../models/login-logout/login-status.servi
 })
 export class AccountComponent implements OnInit {
   userNew: User = new User();
+  status : Boolean = false
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService,
     private loginStatusService : LoginStatusService,
   ) {
-    
+    loginStatusService.status$.subscribe(
+      status => {
+        this.status = status;
+        if (status) {
+          this.getUser()
+        }
+        this.userNew = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.status);
+        // this.getUser();
+      }
+    );
    }
 
   ngOnInit() {

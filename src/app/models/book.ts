@@ -18,17 +18,7 @@ export class Book {
   sellingPrice: number;
   comments: Comment[];
   createDate: string;
-  images: Image;
-  size: Size[];
-  genre: Genre[];
-
-
-
-  public updateFrom(src: Book):void {
-    this._id = src._id;
-    this.title = src.title;
-    this.author = src.author;
-    this.publisher = src.publisher;
-    this.genre = src.genre;
-  }
+  images: Image = new Image();
+  size: Size = new Size();
+  genre: Genre = new Genre();
 }

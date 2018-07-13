@@ -26,15 +26,11 @@ export class BookService {
     return this.http.get<Book[]>(this.booksUrl);
   }
 
+
   getBook(id:string): Observable<Book> {
-    return this.getBooks().pipe(
-      map(books => books.find(book => book._id === id))
-    );
+    const url = `${this.booksUrl}/${id}`;
+    return this.http.get<Book>(url);
   }
-  // getBook(id:string): Observable<Book> {
-  //   const url = `${this.booksUrl}/${id}`;
-  //   return this.http.get<Book>(url);
-  // }
 
   searchBooks(term:string):Observable<Book[]> {
     if (!term.trim()) {

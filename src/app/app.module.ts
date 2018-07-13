@@ -57,6 +57,7 @@ import { LoginStatusService } from './models/login-logout/login-status.service';
 import { AppCustomModule } from './app-custom/app-custom.module';
 import { ShoppingCartService } from './models/cart/shopping-cart.service';
 import { NavListCartComponent } from './nav/nav-list-cart/nav-list-cart.component';
+import { OrderService } from './models/cart/order.service';
 
 @NgModule({
   imports: [
@@ -118,6 +119,7 @@ import { NavListCartComponent } from './nav/nav-list-cart/nav-list-cart.componen
     UserService,
     LoginStatusService,
     ShoppingCartService,
+    OrderService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

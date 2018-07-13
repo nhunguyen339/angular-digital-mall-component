@@ -4,9 +4,9 @@ export class Genre {
   created_date:string;
 
 
-  constructor(
-    name : string,
-  ) {
-    this.name = name;
-  }
+  // constructor(
+  //   name : string,
+  // ) {
+  //   this.name = name;
+  // }
 }

@@ -17,7 +17,7 @@ button {
   width: 330px;
 }
 input {
-  width: 200px;
+  width: 160px;
   float: right;
 }
 .uk-navbar-toggle {
@@ -26,5 +26,8 @@ input {
 }
 ::-moz-placeholder {
   font-size: 14px;
+}
+.uk-search-navbar .uk-search-input {
+  font-size: 16px;
 }
 

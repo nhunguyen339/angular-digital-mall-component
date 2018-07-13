@@ -2,6 +2,14 @@
     <div class="ins-search-filter">
       <h5 class="border-bottom pb-2"><b>Filter By</b></h5>
       <button type="button" class="btn ins-bg-second text-white d-flex align-items-center mt-4"><i class="material-icons mr-2">check</i> Clear all</button>
+      <section class="mt-4" >
+          <h5 class="border-bottom py-2"><b>Genres</b></h5>
+        <ul class="list-unstyled mt-0 pl-0">
+          <li *ngFor="let genre of genres">
+            <a class="ins-a-brand">{{genre.name}}</a>
+          </li>
+        </ul>
+      </section>
       <section class="pt-4">
         <h5 class="border-bottom py-2"><b>Color</b></h5>
         <div class="input-group">

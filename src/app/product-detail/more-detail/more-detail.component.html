@@ -7,7 +7,7 @@
     <div class="col-md-6 col-12  ins-detail-img">
       <img class="my-3 w-100 ins-box-shadow" src="{{book.images.main}}" alt="">
       <span class="btn btn-danger rounded-circle ins-btn-deal">
-          -10%
+          -{{100 - ((book.sellingPrice  / book.previousPrice) * 100)}}%
       </span>
       <ul class="list-unstyled d-block mb-4">
         <li class="d-inline mr-2"><img class="img-thumbnail" src="{{book.images.main}}" alt=""></li>
@@ -35,16 +35,16 @@
       <app-list-item-policy></app-list-item-policy>
       <hr>
       <div class="ins-share-icon">
-          <a href="http://www.facebook.com/share.php?u=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html&t=">
+          <!-- <a href="http://www.facebook.com/share.php?u=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html&t=">
             <i class="fab fa-facebook-f "></i>
-          </a>
+          </a> -->
           <i class="fab fa-youtube"></i>
           <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html&title=&source=BLOGNAME&summary=EXCERPT">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://plus.google.com/share?url=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html">
+          <!-- <a href="https://plus.google.com/share?url=http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html">
             <i class="fab fa-google-plus-g"></i>
-          </a>
+          </a> -->
             <a href="http://twitter.com/home?status=%20-%20http://mas1.magikthemes.com/index.php/fluence/non-fiction/educational-media.html">
                 <i class="fab fa-twitter"></i>
             </a>

@@ -33,7 +33,7 @@ export class AddGenreComponent implements OnInit {
 
   add(): void {
     if ( this.name.length > 0 ) {
-      let newGenre = new Genre(this.name);
+      let newGenre = new Genre();
       this.genreService.addGenre(newGenre)
         .subscribe( genre =>
         {

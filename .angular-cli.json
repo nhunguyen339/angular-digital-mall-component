@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "digital-mall"
+    "name": "bookshop"
   },
   "apps": [
     {
@@ -20,12 +20,15 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/uikit/dist/css/uikit.min.css",
         "styles.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.min.js",
         "../node_modules/popper.js/dist/umd/popper.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/uikit/dist/js/uikit.min.js",
+        "../node_modules/uikit/dist/js/uikit-icons.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -4,7 +4,7 @@ import { Genre } from '../models/genre';
 import { Banner } from '../models/banner';
 import { BannerService } from '../models/banner.service';
 import { Observable, Subject } from "rxjs";
-import { switchMap, distinctUntilChanged, debounceTime, first } from 'rxjs/operators';
+import { switchMap,first } from 'rxjs/operators';
 import { Book } from '../models/book';
 import { UserService } from '../models/login-logout/user.service';
 import { User } from '../models/login-logout/user';
@@ -58,7 +58,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.checkToken();
+    this.checkToken();
     this.getGenres();
     this.getBanners();
     this.shoppingCartService.initCart();

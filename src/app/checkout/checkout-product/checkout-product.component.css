@@ -1,0 +1,11 @@
+table td, th {
+	padding: 16px;
+
+}
+ table tr {
+	border-top: 1px solid #eee;
+}
+ table tr:first-child {
+	border-top: 0px;
+}
+

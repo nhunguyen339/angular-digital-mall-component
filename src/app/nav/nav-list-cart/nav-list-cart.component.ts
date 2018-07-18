@@ -32,5 +32,11 @@ export class NavListCartComponent implements OnInit {
   getStorage() {
     return localStorage.getItem('shoppingCart')
   }
+  removeItem(cartItem: CartItem) {
+    this.shoppingCartService.removeItem(cartItem);
+    this.shoppingCartService.calculateTotal();
+    this.shoppingCartService.calculateCounted();
+    this.shoppingCartService.setStorage();
+  }
 
 }

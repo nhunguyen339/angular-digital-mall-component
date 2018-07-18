@@ -58,6 +58,9 @@ import { AppCustomModule } from './app-custom/app-custom.module';
 import { ShoppingCartService } from './models/cart/shopping-cart.service';
 import { NavListCartComponent } from './nav/nav-list-cart/nav-list-cart.component';
 import { OrderService } from './models/cart/order.service';
+import { OrderManageComponent } from './login/account/order-manage/order-manage.component';
+import { UserInforComponent } from './login/account/user-infor/user-infor.component';
+import { AccountModule } from './login/account/account.module';
 
 @NgModule({
   imports: [
@@ -67,7 +70,8 @@ import { OrderService } from './models/cart/order.service';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AppCustomModule
+    AppCustomModule,
+    // AccountModule,
   ],
   declarations: [
     AppComponent,
@@ -108,7 +112,7 @@ import { OrderService } from './models/cart/order.service';
     SearchComponent,
     AddGenreComponent,
     AccountComponent,
-    NavListCartComponent,
+    NavListCartComponent
   ],
   providers: [
     BookService,

@@ -43,8 +43,8 @@ export class ShoppingCartService implements OnInit {
         this.totalSource.next(JSON.stringify(this.shoppingCart));
 
     }
-    removeStorage(shoppingCart: ShoppingCart) {
-        return localStorage.removeItem('shoppingCart')
+    removeStorage() {
+        localStorage.removeItem('shoppingCart');
     }
     updateCart(shoppingCart: ShoppingCart) {
         this.shoppingCart = shoppingCart;
@@ -127,5 +127,15 @@ export class ShoppingCartService implements OnInit {
         this.shoppingCart.items_counted = count;
         this.setStorage();
         console.log(count);
+    }
+    removeShoppingCart() {
+        if (this.getStorage()) {
+            localStorage.removeItem('shoppingCart');
+            this.initCart();
+            this.calculateCounted();
+            this.calculateTotal();
+            this.setStorage();
+            console.log('remove shoppingCart')
+        }
     }
 }

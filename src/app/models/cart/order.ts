@@ -11,5 +11,6 @@ export class Order {
 export class BOOK {
     price: number;
     quantity: number;
-    _book= new Book()._id;
+    _book: string = new Book()._id;
 }
+

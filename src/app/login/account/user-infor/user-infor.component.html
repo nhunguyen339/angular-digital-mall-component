@@ -1,0 +1,20 @@
+<div>
+    <h4 class=" ins-bg-second text-white p-2 mb-3">Thông tin tài khoản</h4>
+    <div>
+      <table>
+        <tr>
+          <td>Họ tên:</td>
+          <td> {{userNew.first}} {{userNew.last}}</td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>{{userNew.phone}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{userNew.email}}</td>
+        </tr>
+      </table>
+    </div>
+    <a (click)="logout()" routerLink="/registered-custumer">logout</a>
+  </div>

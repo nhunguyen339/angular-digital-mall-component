@@ -1,22 +1,21 @@
 <!-- <div> -->
-    <nav class="navbar ins-nav-category">
-        <div class="container">
-          <div class="row d-flex align-items-center">
-            <div class="col-md-3 col-sm-4">
-              <ul class="list-unstyled">
-                <li>
-                    <a *ngFor="let genre of genres" class="dropdown-item px-0 ins-a-brand" routerLink="/category">{{genre.name}}</a>
-                </li>
-              </ul>
-            </div>
-            <div class="col-md-9 col-sm-8">
-              <app-slide [banners]="banners" ></app-slide>
-            </div>
-          </div>
+<div class="container">
+  <nav class="navbar p-0 ">
+    <div class=" d-flex align-items-center">
+      <!-- <div class="col-md-3 col-sm-4"> -->
+      <ul class="list-unstyled ins-nav-category">
+        <li>
+          <a *ngFor="let genre of genres" class="dropdown-item px-0" routerLink="/category">{{genre.name}}</a>
+        </li>
+      </ul>
+      <!-- </div> -->
+      <!-- <div class="col-md-9 col-sm-8"> -->
+      <app-slide [banners]="banners"></app-slide>
+      <!-- </div> -->
+    </div>
 
-        </div>
-    </nav>
-  <div class="container">
+  </nav>
+
   <app-list-item-support></app-list-item-support>
   <app-new-feature-best-product></app-new-feature-best-product>
   <div class="row ins-img-single-quote">
@@ -28,19 +27,20 @@
       </div>
       <div class="col-md-4 p-4">
         <h2> Lorem ipsum dolor sit amet. </h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloribus distinctio placeat nisi error, at aliquid reprehenderit aut corporis cumque.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloribus distinctio placeat nisi error, at aliquid
+          reprehenderit aut corporis cumque.</p>
       </div>
     </div>
   </div>
   <app-similar-product></app-similar-product>
   <div class="ins-img-single mt-4 ">
     <img src="https://res.cloudinary.com/dtbgme8xe/image/upload/v1531459773/bookshop-angular/paper.png" class="w-100" alt="">
-    <div > 
+    <div>
       <p class="display-3">Wellcome to our Store</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, alias!</p>
     </div>
   </div>
   <app-list-item-company></app-list-item-company>
-  </div>
+</div>
 
 <!-- </div> -->

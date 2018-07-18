@@ -12,6 +12,7 @@ import { LoginStatusService } from '../models/login-logout/login-status.service'
 import { ShoppingCart } from '../models/cart/shopping-cart';
 import { ShoppingCartService } from '../models/cart/shopping-cart.service';
 import { CartItem } from '../models/cart/cart-item';
+import { AuthenticationService } from '../models/login-logout/authentication.service';
 
 @Component({
   selector: 'app-nav',
@@ -38,6 +39,7 @@ export class NavComponent implements OnInit {
     private userService: UserService,
     private loginStatusService: LoginStatusService,
     private shoppingCartService: ShoppingCartService,
+    private  authenticationService : AuthenticationService
   ) {
     loginStatusService.status$.subscribe(
       status => {
@@ -76,7 +78,7 @@ export class NavComponent implements OnInit {
 
   getBanners(): void {
     this.bannerService.getBanners()
-      .subscribe(banners => this.banners = banners.slice(1, 2));
+      .subscribe(banners => this.banners = banners);
   }
   getStorage() {
     return localStorage.getItem('shoppingCart')
@@ -90,6 +92,11 @@ export class NavComponent implements OnInit {
       this.loginStatusService.setStatus(this.statusUser);
     }
     console.log('check')
+  }
+  logout(): void {
+    this.authenticationService.logout();
+    this.loginStatusService.setStatus(false);
+    console.log('logout')
   }
   // ===============
 

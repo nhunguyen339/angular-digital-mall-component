@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { CategoryComponent } from './category/category.component';
@@ -15,7 +15,7 @@ import { NewCustumerComponent } from "./login/new-custumer/new-custumer.componen
 import { RegisteredCustumerComponent } from "./login/registered-custumer/registered-custumer.component";
 import { AccountComponent } from "./login/account/account.component";
 
-const routes : Routes = [
+const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
   { path: 'category', component: CategoryComponent },
@@ -31,13 +31,20 @@ const routes : Routes = [
   // { path: ':category/:subcategory', component: CategoryComponent },
   // { path: ':category/:_id', component: ProductDetailComponent },
   { path: 'add-genre', component: AddGenreComponent },
-  { path: 'account', component: AccountComponent, canActivate: [AuthGuard] },
+  {
+    path: 'account', component: AccountComponent,
+    loadChildren: './login/account/account.module#AccountModule'
+  }, 
   { path: 'new-custumer', component: NewCustumerComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 
-@NgModule ({
-  imports : [ RouterModule.forRoot(routes) ],
-  exports : [ RouterModule ]
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { 
+  constructor(router: Router) {
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

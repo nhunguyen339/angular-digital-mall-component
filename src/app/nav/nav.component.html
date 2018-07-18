@@ -1,6 +1,6 @@
 <nav class="navbar w-100 navbar-expand-lg navbar-light bg-lights ins-nav-main mb-3 ">
   <div class="uk-offcanvas-content">
-    <button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
+    <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
     <div id="offcanvas-slide" uk-offcanvas="overlay: false">
       <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -40,6 +40,39 @@
               </a>
             </small>
           </div>
+          <div class="uk-dropdown" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
+            <ul class="list-unstyled">
+              <li *ngIf="userNew">
+                <a routerLink="/account" class="ins-a-brand">Hi {{userNew.last}}</a>
+              </li>
+              <li *ngIf="userNew">
+                <a routerLink="/account" class="ins-a-brand">Thông tin tài khoản</a>
+              </li>
+              <li *ngIf="userNew">
+                <a routerLink="/account/user-infor" class="ins-a-brand">Quản lý đơn hàng</a>
+              </li>
+              <li *ngIf="userNew" class="float-right">
+                <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Logout</a>
+
+                <div id="modal-center" class="uk-flex-top" uk-modal>
+                  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                    <p>Do you want to logout?</p>
+
+                    <button class="uk-button uk-button-default uk-modal-close demo float-right" type="button" (click)="logout()" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Logout Successful'})">Yes</button>
+                    <button class="uk-button uk-button-danger uk-modal-close float-right mr-2" type="button">Cancel</button>
+
+                  </div>
+                </div>
+              </li>
+
+              <li *ngIf="!userNew">
+                <a routerLink="/registered-custumer" class="ins-a-brand">Login</a>
+              </li>
+            </ul>
+          </div>
         </div>
       </li>
       <li class="nav-item mr-3 float-left navbar-text d-flex align-items-center ">
@@ -52,7 +85,7 @@
               <a routerLink="/cart" class="nav-link ins-a-brand px-0 my-0">Cart({{shoppingCart.items_counted}})</a>
             </small>
           </div>
-          <div class="uk-dropdown" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
+          <div class="uk-dropdown p-3" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
             <app-nav-list-cart></app-nav-list-cart>
           </div>
         </div>

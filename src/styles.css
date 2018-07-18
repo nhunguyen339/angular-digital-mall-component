@@ -20,7 +20,7 @@
   }
   footer {
     font-size: 14px;
-    background-color: #eee;
+    background-color: #f5f5f5;
   }
 
   button {
@@ -92,19 +92,43 @@
     color: rgb(0, 171, 169) !important;
   }
   .ins-btn-outline-brand {
-    color:  rgb(0, 171, 169);
+    /* color:  rgb(0, 171, 169);
     background-color: rgb(248, 248, 248);
     background-image: none;
-    border-color: rgb(0, 171, 169) ;
+    border-color: rgb(0, 171, 169) ; */
+    margin: 0;
+    border-radius: 0;
+    overflow: visible;
+    font: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 30px;
+    vertical-align: middle;
+    font-size: .875rem;
+    line-height: 38px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: .1s ease-in-out;
+    transition: .1s ease-in-out;
+    background-color: transparent;
+    color: #333;
+    border: 1px solid #e5e5e5;
   }
   .ins-btn-outline-brand:hover {
-    background-color: rgb(0, 171, 169);
-    color:  #fff;
+    /* background-color: rgb(0, 171, 169);
+    color:  #fff; */
+    background-color: transparent;
+    color: #333;
+    border-color: #b2b2b2;
+    text-decoration: none;
+    cursor: pointer;
   }
   .ins-input-search {
     border-top: none;
       border-right: none;
       border-left: none;
+      border-bottom:  1px solid #e5e5e5;
       border-radius: 0px;
       box-shadow: none;
       background: transparent;

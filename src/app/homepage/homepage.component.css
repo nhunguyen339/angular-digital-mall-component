@@ -9,7 +9,20 @@
 }
 .ins-nav-category {
   font-size: 15px;
-  background-color: #eee;
+  position: absolute;
+  z-index: 1000;
+  background: rgb(0, 0, 0, 0.7);
+  height: 100%;
+  padding: 10px;
+}
+.ins-nav-category  a {
+  color:  white;
+  
+}
+.ins-nav-category  a:hover {
+  color:  rgb(172, 147, 108);
+  background: transparent;
+
 }
 @media (min-width: 991px) {
 

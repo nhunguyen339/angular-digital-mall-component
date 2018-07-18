@@ -2,9 +2,13 @@
  .ins-list-item-1 .media p, .ins-list-item-1 .media h5 {
   margin-bottom: 0px;
   font-size: 14px;
+  font-weight: 600;
 }
 i.material-icons.ins-icon-1 {
   font-size: 40px;
   color:rgb(172, 147, 108);
 }
 /* list-item-1-end */
+p {
+  margin-top: 0px;
+}

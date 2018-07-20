@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule, Router } from '@angular/router';
+import { Routes, RouterModule, Router, PreloadAllModules } from '@angular/router';
 
 import { HomepageComponent } from './homepage/homepage.component';
 import { CategoryComponent } from './category/category.component';
@@ -32,19 +32,19 @@ const routes: Routes = [
   // { path: ':category/:_id', component: ProductDetailComponent },
   { path: 'add-genre', component: AddGenreComponent },
   {
-    path: 'account', component: AccountComponent,
-    loadChildren: './login/account/account.module#AccountModule'
+    path: 'account', canActivate: [AuthGuard],
+    loadChildren: './login/account/account-routing/account-routing.module#AccountRoutingModule'
   }, 
   { path: 'new-custumer', component: NewCustumerComponent },
   { path: '**', component: PageNotFoundComponent },
 ]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }), ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 
-  constructor(router: Router) {
-    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
-  }
+  // constructor(router: Router) {
+  //   console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  // }
 }

@@ -21,23 +21,20 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getBook();
+    
+  }
+
+  // getBook(): void {
+  //   let id: string;
+  //   id = this.route.snapshot.paramMap.get('_id');
+  //   this.bookService.getBook(id)
+  //     .subscribe(book => this.book = book);
+  // }
+  getBook():void {
     this.book$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.bookService.getBook(params.get('_id')))
     );
   }
-
-  getBook(): void {
-    let id: string;
-    id = this.route.snapshot.paramMap.get('_id');
-    this.bookService.getBook(id)
-      .subscribe(book => this.book = book);
-  }
-  // getBook():void {
-  //   let id: string;
-  //   id = this.route.snapshot.paramMap.get('_id');
-  //   this.bookService.getBook(id)
-  //     .subscribe( book => this.book =book );
-  // }
 
 }

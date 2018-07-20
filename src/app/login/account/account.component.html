@@ -1,13 +1,13 @@
-<div *ngIf="userNew">
+<div *ngIf="currentUser">
   <div class="container">
     <div class="row">
       <div class="col-4 col-md-3">
-        <h4 class=" ins-bg-second text-white p-2 mb-3">{{userNew.first}} {{userNew.last}}</h4>
+        <h4 class=" ins-bg-second text-white p-2 mb-3">{{currentUser.first}} {{currentUser.last}}</h4>
         <div class="user-menu">
           <ul>
             <li>
               <a class="ins-a-brand" routerLinkActive="active"
-              [routerLinkActiveOptions]="{ exact: true }" routerLink="./user-infor">Thông tin tài khoản</a>
+              routerLink="./user-infor">Thông tin tài khoản</a>
             </li>
             <li>
               <a class="ins-a-brand">Thông báo của tôi</a>

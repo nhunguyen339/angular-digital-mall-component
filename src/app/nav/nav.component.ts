@@ -20,7 +20,7 @@ import { AuthenticationService } from '../models/login-logout/authentication.ser
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  userNew: User = new User();
+  currentUser: User = new User();
   genres: Genre[];
   banners: Banner[];
   status: Boolean;
@@ -47,7 +47,7 @@ export class NavComponent implements OnInit {
         if (status) {
           this.getUser();
         }
-        this.userNew = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(localStorage.getItem('_currentUser'));
         console.log(this.status);
       }
     );
@@ -60,7 +60,7 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkToken();
+    this.checkToken(); // in checkToken() have getUser();
     this.getGenres();
     this.getBanners();
     this.shoppingCartService.initCart();
@@ -68,7 +68,7 @@ export class NavComponent implements OnInit {
   }
 
   getUser(): void {
-    this.userService.getAll().pipe(first()).subscribe(_ => this.userNew = _.user)
+    this.userService.getAll().pipe(first()).subscribe(_ => this.currentUser = _.user)
   };
 
   getGenres(): void {
@@ -84,7 +84,7 @@ export class NavComponent implements OnInit {
     return localStorage.getItem('shoppingCart')
   }
   checkToken() {
-    if ( localStorage.getItem('currentUser')) {
+    if ( localStorage.getItem('_currentUser')) {
       this.statusUser = true;
       this.loginStatusService.setStatus(this.statusUser);
       this.getUser();

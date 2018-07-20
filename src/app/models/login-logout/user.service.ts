@@ -14,7 +14,7 @@ export class UserService {
   usersUrl = "http://green-web-ecommerce.herokuapp.com/v1/users";
   constructor( private http: HttpClient ) { }
 
-  getAll() {
+  getAll(): Observable<Users> {
     return this.http.get<Users>(this.usersUrl);
   }
 

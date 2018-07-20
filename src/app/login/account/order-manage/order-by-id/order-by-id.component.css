@@ -1,7 +1,7 @@
-.order-manage table td,.order-manage table tr th {
+.order-by-id table td,.order-by-id table tr th {
     border: 0.5px solid #eee;
     padding: 10px 20px;
 }
-.order-manage table {
+.order-by-id table {
     width: 100%;
 }

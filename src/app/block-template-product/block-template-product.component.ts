@@ -33,18 +33,17 @@ export class BlockTemplateProductComponent implements OnInit {
   }
 
 
-  // getBooks(): void {
-  //   this.books$ = this.route.paramMap.pipe(
-  //     switchMap((params: ParamMap) => {
-  //       this.selectedId = +params.get('_id');
-  //       return this.bookService.getBooks();
-  //     })
-  //   )
-  // }
   getBooks(): void {
-    this.bookService.getBooks()
-      .subscribe(books => this.books = books);
+    this.books$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        return this.bookService.getBooks();
+      })
+    )
   }
+  // getBooks(): void {
+  //   this.bookService.getBooks()
+  //     .subscribe(books => this.books = books);
+  // }
 
   // =================shoppping cart ===================
 

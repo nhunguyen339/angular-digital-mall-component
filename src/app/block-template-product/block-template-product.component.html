@@ -1,5 +1,5 @@
-<div class="row" *ngIf="books">
-  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ins-block-template" *ngFor='let book of books'>
+<div class="row" *ngIf="books$">
+  <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 ins-block-template" *ngFor='let book of books$ | async'>
     <div class="card text-center border-0 my-4 ins-card-product">
       <a routerLink="/detail/{{book._id}}">
         <img class="ins-img-product" src="{{book.images.main}}" alt="">
@@ -19,7 +19,8 @@
         <br>
         <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
         <br>
-        <button type="button" class="btn ins-btn-outline-brand mt-2" (click)="addItem(book, 1)">Add to cart</button>
+        <button class="uk-button uk-button-default uk-modal-close ins-btn-outline-brand mt-2" type="button" (click)="addItem(book, 1)" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Add to cart successful. '})">Add cart</button>
+        <!-- <button type="button" class="btn ins-btn-outline-brand mt-2" (click)="addItem(book, 1)">Add to cart</button> -->
       </div>
     </div>
   </div>

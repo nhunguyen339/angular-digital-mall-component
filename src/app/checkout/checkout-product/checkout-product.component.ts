@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BOOK, Order } from '../../models/cart/order';
+import { BOOK, Order, _User } from '../../models/cart/order';
 import { User } from '../../models/login-logout/user';
 import { ShoppingCart } from '../../models/cart/shopping-cart';
 import { OrderService } from '../../models/cart/order.service';
@@ -16,7 +16,7 @@ import { first } from 'rxjs/operators';
 export class CheckoutProductComponent implements OnInit {
 
 
-  userNew = new User();
+  currentUser = new User();
   statusUser: Boolean = false;
   orderCurrent = new Order();
   shoppingCart: ShoppingCart;
@@ -51,10 +51,10 @@ export class CheckoutProductComponent implements OnInit {
   // }
 
   getUser(): void {
-    this.userService.getAll().pipe(first()).subscribe(_ => this.userNew = _.user)
+    this.userService.getAll().subscribe(_ => this.currentUser = _.user)
   };
   checkToken() {
-    if (localStorage.getItem('currentUser')) {
+    if (localStorage.getItem('_currentUser')) {
       this.statusUser = true;
       this.loginStatusService.setStatus(this.statusUser);
       this.getUser();
@@ -70,14 +70,14 @@ export class CheckoutProductComponent implements OnInit {
   ordered() {
     this.shoppingCartService.updateCart(this.shoppingCart);
     if (this.shoppingCart.items.length > 0) {
-      console.log(this.shoppingCart.total)
-      console.log(this.userNew._id)
       this.orderCurrent.total = this.shoppingCart.total;
-      this.orderCurrent._user = this.userNew._id;
+      this.orderCurrent._user._id = this.currentUser._id;
+      this.orderCurrent._user.email = this.currentUser.email;
       if (this.shoppingCart) {
         for (let i = 0; i < this.shoppingCart.items.length; i++) {
           const books_ = new BOOK();
-          books_._book = this.shoppingCart.items[i]._id;
+          books_._book._id = this.shoppingCart.items[i].productId;
+          books_._book.title = this.shoppingCart.items[i].title;
           books_.price = this.shoppingCart.items[i].sellingPrice;
           books_.quantity = this.shoppingCart.items[i].quantity;
           this.orderCurrent.books.push(books_);
@@ -87,9 +87,10 @@ export class CheckoutProductComponent implements OnInit {
       this.orderService.addOrder(this.orderCurrent).
         subscribe(data => {
           console.log(`Da dat hang thanh cong\nThanh tien: ${data.total}\nSo luong sach: ${data.books.length}`);
-          this.orderCurrent.total = 0;
-          this.orderCurrent._user = '';
+          // this.orderCurrent.total = 0;
+          // this.orderCurrent._user = '';
           this.orderCurrent.books = new Array<BOOK>();
+          this.orderCurrent._user = new _User();
           this.shoppingCartService.removeShoppingCart();
         });
     }

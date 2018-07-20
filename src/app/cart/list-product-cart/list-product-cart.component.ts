@@ -53,33 +53,7 @@ export class ListProductCartComponent implements OnInit {
     console.log('update');
   }
 
-  // cartItems : CartItem = JSON.parse(localStorage.getItem('shoppingCart')).items;
-
-  // getBook_cart() {
-  //   for (var i = 0; i < this.books.length; i++) {
-  //     // let findIndex = this.shoppingCart.items.findIndex((i) => i.productId == this.book._id)
-  //     this.booksInCart = this.books.filter((b) => b._id == this.shoppingCart.items[i].productId)
-  //   }
-  //   console.log(this.booksInCart);
-  // }
-
-  // findItem(books: Book[]) {
-  //   books = this.books;
-  //   const item = new ItemsFound();
-  //   const items = new Array<ItemsFound>();
-  //   for (let i = 0; i < this.shoppingCart.items.length; i++) {
-  //     for (let j = 0; j < books.length; j++) {
-  //       // let find = this.shoppingCart.items.find((i) => (i).productId == books[j]._id );
-  //       // item = find;
-  //       let find = books.find((b) => b._id == this.shoppingCart.items[i].productId);
-  //       item.book = find;
-  //       item.quatity = this.shoppingCart.items[i].quantity;
-  //       items.push(item);
-  //     }
-  //   }
-  //   this.itemsFound = items;
-  //   console.log(this.itemsFound.toString());
-  // }
+ 
 }
 
 

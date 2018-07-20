@@ -15,8 +15,9 @@ import { OrderService } from '../../../models/cart/order.service';
 export class UserInforComponent implements OnInit {
 
   ordersCurrent: Order[];
-  userNew: User = new User();
-  status : Boolean = false
+  currentUser: User = new User();
+  status : Boolean = false;
+  statusUser: Boolean;
   constructor(
     private userService: UserService,
     private authenticationService: AuthenticationService,
@@ -29,7 +30,7 @@ export class UserInforComponent implements OnInit {
         if (status) {
           this.getUser()
         }
-        this.userNew = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(localStorage.getItem('_currentUser'));
         console.log(this.status);
         // this.getUser();
       }
@@ -37,8 +38,7 @@ export class UserInforComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getUser();
-    this.getOrders();
+    this.checkToken();
   }
   logout(): void {
     this.authenticationService.logout();
@@ -47,15 +47,19 @@ export class UserInforComponent implements OnInit {
   }
   getUser():void {
     this.userService.getAll().pipe(first()).subscribe(_ =>
-      this.userNew = _.user)
+      this.currentUser = _.user)
   }
-  getOrders():void {
-    this.orderService.getOrders().subscribe(
-      _ => this.ordersCurrent = _
-    )
-    console.log(this.ordersCurrent)
+  checkToken() {
+    if ( localStorage.getItem('_currentUser')) {
+      this.statusUser = true;
+      this.loginStatusService.setStatus(this.statusUser);
+      this.getUser();
+    } else {
+      this.loginStatusService.setStatus(this.statusUser);
+    }
+    console.log('check')
   }
-  test() {
-    
-  }
+
+
+ 
 }

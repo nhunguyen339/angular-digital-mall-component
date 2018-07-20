@@ -27,7 +27,9 @@
       </select> -->
       <div class="ins-detail-add-to-cart mt-3  d-flex ">
         <input class=" btn p-2 ins-btn-outline-brand" type="number" name="" value="1" [(ngModel)]="inputQuantity" min="1">
-        <button type="button" (click)="addItem(book)" class="btn ins-btn-outline-brand ml-4">Add to cart</button>
+        <!-- <button type="button" (click)="addItem(book)" class="btn ins-btn-outline-brand ml-4">Add to cart</button> -->
+        <button class="uk-button uk-button-default uk-modal-close ins-btn-outline-brand ml-4" type="button" (click)="addItem(book)" onclick="UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Add to cart successful. '})">Add cart</button>
+
         <span class="ml-4 d-flex align-items-center">
             <i class="material-icons ins-text-second">check</i> <b>In stock</b>
         </span>

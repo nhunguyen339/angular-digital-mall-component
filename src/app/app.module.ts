@@ -52,15 +52,11 @@ import { AuthGuard } from './models/login-logout/auth.guard';
 import { AuthenticationService } from './models/login-logout/authentication.service';
 import { UserService } from './models/login-logout/user.service';
 import { JwtInterceptor } from './models/login-logout/jwt.interceptor';
-import { AccountComponent } from './login/account/account.component';
 import { LoginStatusService } from './models/login-logout/login-status.service';
 import { AppCustomModule } from './app-custom/app-custom.module';
 import { ShoppingCartService } from './models/cart/shopping-cart.service';
 import { NavListCartComponent } from './nav/nav-list-cart/nav-list-cart.component';
 import { OrderService } from './models/cart/order.service';
-import { OrderManageComponent } from './login/account/order-manage/order-manage.component';
-import { UserInforComponent } from './login/account/user-infor/user-infor.component';
-import { AccountModule } from './login/account/account.module';
 
 @NgModule({
   imports: [
@@ -71,7 +67,6 @@ import { AccountModule } from './login/account/account.module';
     HttpClientModule,
     ReactiveFormsModule,
     AppCustomModule,
-    // AccountModule,
   ],
   declarations: [
     AppComponent,
@@ -111,8 +106,7 @@ import { AccountModule } from './login/account/account.module';
     PageNotFoundComponent,
     SearchComponent,
     AddGenreComponent,
-    AccountComponent,
-    NavListCartComponent
+    NavListCartComponent,
   ],
   providers: [
     BookService,

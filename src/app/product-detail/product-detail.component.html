@@ -1,8 +1,7 @@
-<div *ngIf="book"  class="container">
+<div *ngIf="book$ | async as book"  class="container">
     <!-- .row1:breadcrumb -->
     <app-breadcrumb [book]="book"></app-breadcrumb>
     <!-- .row1:breadcrumb-end -->
-
 
     <!-- .row2: detail  -->
     <app-more-detail [book]="book" ></app-more-detail>

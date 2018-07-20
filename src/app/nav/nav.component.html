@@ -1,6 +1,6 @@
 <nav class="navbar w-100 navbar-expand-lg navbar-light bg-lights ins-nav-main mb-3 ">
   <div class="uk-offcanvas-content">
-    <button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
+    <button class="uk-button uk-button-default mr-3" type="button" uk-toggle="target: #offcanvas-slide">Category</button>
     <div id="offcanvas-slide" uk-offcanvas="overlay: false">
       <div class="uk-offcanvas-bar">
         <button class="uk-offcanvas-close" type="button" uk-close></button>
@@ -34,24 +34,24 @@
             </a>
             <small>
               <a routerLink="/account" class="nav-link ins-a-brand px-0 my-0">
-                <div *ngIf="userNew">
-                  {{userNew.last}} {{userNew.first}}
+                <div *ngIf="currentUser">
+                  {{currentUser.last}} {{currentUser.first}}
                 </div>
               </a>
             </small>
           </div>
           <div class="uk-dropdown" uk-dropdown="animation: uk-animation-slide-top-small;pos: bottom-right; duration: 700">
             <ul class="list-unstyled">
-              <li *ngIf="userNew">
-                <a routerLink="/account" class="ins-a-brand">Hi {{userNew.last}}</a>
+              <li *ngIf="currentUser">
+                <a routerLink="/account" class="ins-a-brand">Hi {{currentUser.last}}</a>
               </li>
-              <li *ngIf="userNew">
+              <li *ngIf="currentUser">
                 <a routerLink="/account" class="ins-a-brand">Thông tin tài khoản</a>
               </li>
-              <li *ngIf="userNew">
-                <a routerLink="/account/user-infor" class="ins-a-brand">Quản lý đơn hàng</a>
+              <li *ngIf="currentUser">
+                <a routerLink="/account/order-manage" class="ins-a-brand">Quản lý đơn hàng</a>
               </li>
-              <li *ngIf="userNew" class="float-right">
+              <li *ngIf="currentUser" class="float-right">
                 <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Logout</a>
 
                 <div id="modal-center" class="uk-flex-top" uk-modal>
@@ -68,7 +68,7 @@
                 </div>
               </li>
 
-              <li *ngIf="!userNew">
+              <li *ngIf="!currentUser">
                 <a routerLink="/registered-custumer" class="ins-a-brand">Login</a>
               </li>
             </ul>

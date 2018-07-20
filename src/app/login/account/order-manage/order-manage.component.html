@@ -1,3 +1,30 @@
-<p>
-  order-manage works!
-</p>
+<div class="order-manage">
+  <h4 class=" ins-bg-second text-white p-2 mb-3">Đơn hàng của {{currentUser.first}}</h4>
+  <div>
+    <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Sản phẩm</th>
+        <th>Tổng tiền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td><a routerLink="./{{order._id}}">{{order._id}}</a></td>
+        <td >
+          <ul class="list-unstyled" *ngFor="let book of order.books">
+            <li>
+                <a routerLink="/detail/{{book._book?._id}}" class="ins-a-brand">{{book._book?.title}}</a>
+            </li>
+          </ul>
+        </td>
+        <td>
+          {{order.total}}
+        </td>
+      </tr>
+    </tbody>
+
+    </table>
+  </div>
+</div>

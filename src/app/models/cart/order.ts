@@ -3,7 +3,8 @@ import { Book } from "../book";
 
 
 export class Order {
-    _user = new User()._id;
+    _id: string;
+    _user = new _User();
     books: BOOK[] = new Array<BOOK>();
     total: number;
 }
@@ -11,6 +12,13 @@ export class Order {
 export class BOOK {
     price: number;
     quantity: number;
-    _book: string = new Book()._id;
+    _book = new _Book();
 }
-
+export class _User {
+    email: string;
+    _id: string;
+}
+export class _Book {
+    _id: string;
+    title: string;
+}

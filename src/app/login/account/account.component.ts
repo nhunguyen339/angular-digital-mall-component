@@ -15,7 +15,7 @@ import { Conditional } from '@angular/compiler';
 })
 export class AccountComponent implements OnInit {
   ordersCurrent: Order[];
-  userNew: User = new User();
+  currentUser: User = new User();
   status : Boolean = false
   constructor(
     private userService: UserService,
@@ -28,7 +28,7 @@ export class AccountComponent implements OnInit {
         if (status) {
           this.getUser()
         }
-        this.userNew = JSON.parse(localStorage.getItem('currentUser'));
+        this.currentUser = JSON.parse(localStorage.getItem('_currentUser'));
         console.log(this.status);
         // this.getUser();
       }
@@ -36,7 +36,7 @@ export class AccountComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.getUser();
+    // this.getUser();
     // this.getOrders();
   }
   logout(): void {
@@ -45,8 +45,8 @@ export class AccountComponent implements OnInit {
     console.log('logout')
   }
   getUser():void {
-    this.userService.getAll().pipe(first()).subscribe(_ =>
-      this.userNew = _.user)
+    this.userService.getAll().subscribe(_ =>
+      this.currentUser = _.user)
   }
 
 }

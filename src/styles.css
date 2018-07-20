@@ -265,7 +265,9 @@
   .form-control {
     border-radius: 0;
   }
-
+.ins-icon-delete {
+  cursor: pointer;
+}
 
 
 

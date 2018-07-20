@@ -3,11 +3,11 @@
   right: 0;
 }
 .navbar-brand {
-  position: absolute;
+  /* position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  top: 0px; */
   font-size: 40px;
-  top: 0px;
 }
 .dropdown-menu {
   font-size: 15px;
